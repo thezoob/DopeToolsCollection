@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1893448595, guid: a040fb66244a7f54289914d98ea4ef7d, type: 3}
+  m_Name: SU_FloatInvertValues
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"graph":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[{"hasDefaultValue":true,"defaultValue":{"$content":0.5,"$type":"System.Single"},"_type":"System.Single","key":"Input
+      Float","label":"n","summary":null,"hideLabel":false}],"valueOutputDefinitions":[{"_type":"System.Single","key":"Original","label":"n","summary":null,"hideLabel":false},{"_type":"System.Single","key":"Inverse","label":"-n","summary":null,"hideLabel":false}],"title":"Float
+      Invert values","summary":null,"pan":{"x":-169.2319,"y":-12.0},"zoom":1.0,"elements":[{"defaultValues":{},"position":{"x":-552.0,"y":-36.0},"guid":"c622274e-2322-4723-a09f-a6069df3e27e","$version":"A","$type":"Bolt.GraphInput","$id":"12"},{"defaultValues":{},"position":{"x":-108.0,"y":-36.0},"guid":"c5280f27-183a-44fc-9e12-2d3735cff84a","$version":"A","$type":"Bolt.GraphOutput","$id":"14"},{"defaultValues":{"b":{"$content":-1.0,"$type":"System.Single"}},"position":{"x":-348.0,"y":60.0},"guid":"63800f5f-ecae-4259-a433-60a34f9a118a","$version":"A","$type":"Bolt.ScalarMultiply","$id":"16"},{"sourceUnit":{"$ref":"12"},"sourceKey":"Input
+      Float","destinationUnit":{"$ref":"16"},"destinationKey":"a","guid":"fb685bd5-3f6e-4c99-b7d6-581a4cd6f149","$type":"Bolt.ValueConnection"},{"sourceUnit":{"$ref":"12"},"sourceKey":"Input
+      Float","destinationUnit":{"$ref":"14"},"destinationKey":"Original","guid":"e5d731e2-1b64-4fd1-8468-8e75a9977ef7","$type":"Bolt.ValueConnection"},{"sourceUnit":{"$ref":"16"},"sourceKey":"product","destinationUnit":{"$ref":"14"},"destinationKey":"Inverse","guid":"d55fcb8e-7ec5-4893-b8b2-cfc02dc9699d","$type":"Bolt.ValueConnection"}],"$version":"A"}}'
+    _objectReferences: []
