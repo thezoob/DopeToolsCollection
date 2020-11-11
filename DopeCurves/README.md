@@ -4,7 +4,7 @@
 
 ## Thanks for downloading DopeCurves.
 
-Please watch the video here: https://www.youtube.com/c/thezoobtube to learn how to use DopeCurves.
+### Please watch the video here: https://www.youtube.com/c/thezoobtube to learn how to use DopeCurves.
 
 ## FAQ:
 
