@@ -1,7 +1,7 @@
 # DopeToolsCollection
  ### Dope Notifications Android
  --------------------------------------------
- #### Requires Mobile Notifications Package from Unity
+ #### Requires *Mobile Notifications* Package from Unity
 ![Dope Notifications Android](https://i.imgur.com/HF1bZBp.png)
  --------------------------------------------
 
