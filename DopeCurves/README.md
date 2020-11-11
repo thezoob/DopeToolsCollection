@@ -46,13 +46,12 @@
 		- **SU_RangeMapper_Vector3** - Clamps an incoming Vector3 value between a Pair of Values and Outputs them to a Value between another Pair of Values.
 		- **SU_RangeMapper_Generic** - Clamps an incoming value between a Pair of Values and Outputs them to a Value between another Pair of Values. (Generic version of RangeMapper Super Unit)
 
+--------------------------------------
 
 ### Copyright 2020 Zubair Parkar.
-
-
 ###### https://www.thezoob.net
 ###### https://instagram.com/thezoob.art
-
+--------------------------------------
 
 SUPPORT
 --------------------------------------
