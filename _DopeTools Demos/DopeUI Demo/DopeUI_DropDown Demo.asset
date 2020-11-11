@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1893448595, guid: a040fb66244a7f54289914d98ea4ef7d, type: 3}
-  m_Name: DopeUI_DropDown
+  m_Name: DopeUI_DropDown Demo
   m_EditorClassIdentifier: 
   _data:
     _json: '{"graph":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":0.0,"y":0.0},"zoom":1.0,"elements":[{"nest":{"source":"Macro","macro":0,"embed":null},"defaultValues":{"OnValueChanged":{"$content":"OnValueChanged","$type":"System.String"}},"position":{"x":-384.0,"y":-180.0},"guid":"40139b9e-5e56-45c0-82f6-855f2d914ca1","$version":"A","$type":"Bolt.SuperUnit","$id":"9"},{"chainable":false,"member":{"name":"Log","parameterTypes":["System.Object"],"targetType":"UnityEngine.Debug","targetTypeName":"UnityEngine.Debug","$version":"A"},"defaultValues":{},"position":{"x":-108.0,"y":-180.0},"guid":"11e2663f-c833-427f-89e1-72ab5119904c","$version":"A","$type":"Bolt.InvokeMember","$id":"12"},{"sourceUnit":{"$ref":"9"},"sourceKey":"Exit","destinationUnit":{"$ref":"12"},"destinationKey":"enter","guid":"0e872c6a-e858-40f7-8757-35140f26fb08","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"9"},"sourceKey":"Selection","destinationUnit":{"$ref":"12"},"destinationKey":"%message","guid":"26119983-bd42-49af-9a47-4be41b7346c6","$type":"Bolt.ValueConnection"}],"$version":"A"}}'
