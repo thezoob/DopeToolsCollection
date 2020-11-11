@@ -4,13 +4,12 @@ using UnityEngine;
 
 [UnitSurtitle("theZoob")]
 [UnitTitle("DopeCurves")]
-[UnitSubtitle("Custom Animations for UI and more")]
+//[UnitSubtitle("Custom Animations for UI and more")]
 [UnitCategory("DopeUI/Animation")]
 [RenamedFrom("zoobAnimUnit")]
 
 [TypeIcon(typeof(AnimationCurve))]
 
-[Inspectable]
 public class theZoobAnimates : Unit
 {
   

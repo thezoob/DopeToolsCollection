@@ -5,7 +5,7 @@ using Unity.Notifications.Android;
 [UnitSurtitle("Dope Notifications Android")]
 [UnitTitle("Schedule Notification")]
 [UnitCategory("DopeNotifications/Android")]
-[Inspectable]
+
 public sealed class DopeAndroidScheduleNotification : Unit
 {
     [DoNotSerialize]

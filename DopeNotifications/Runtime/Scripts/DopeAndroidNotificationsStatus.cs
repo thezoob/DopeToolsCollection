@@ -7,7 +7,6 @@ using Unity.Notifications.Android;
     [UnitTitle("Check Status")]
     [UnitCategory("DopeNotifications/Android")]
 
-    [Inspectable]
     public sealed class DopeAndroidNotificationsStatus : Unit
     {
         [DoNotSerialize]

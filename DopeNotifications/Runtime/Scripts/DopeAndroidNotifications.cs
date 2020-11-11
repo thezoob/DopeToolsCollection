@@ -6,7 +6,7 @@ using Unity.Notifications.Android;
 [UnitTitle("Send Delayed Notification")]
 [UnitCategory("DopeNotifications/Android")]
 [RenamedFrom("DopeNotifications")]
-[Inspectable]
+
     public sealed class DopeAndroidNotifications : Unit
     {
         [DoNotSerialize]
