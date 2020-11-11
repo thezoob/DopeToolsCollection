@@ -6,7 +6,7 @@
 ![DopeCurves](https://i.imgur.com/2R1QLfD.png)
 
 ### DopeTouch
-![DopeTouch](https://i.imgur.com/FvzREVom.jpg)
+![DopeTouch](https://i.imgur.com/FvzREVo.png)
 
 ### DopeUI
 ### Super Units that don't belong
