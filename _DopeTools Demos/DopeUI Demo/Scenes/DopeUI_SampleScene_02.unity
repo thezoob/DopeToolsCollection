@@ -678,6 +678,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 883237157299201780, guid: 6c99f5df485ae0247add859197057ce6,
+        type: 3}
+      propertyPath: m_Name
+      value: Button (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 883237157299201783, guid: 6c99f5df485ae0247add859197057ce6,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -1007,6 +1012,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5106840098431816700, guid: 6c99f5df485ae0247add859197057ce6,
+        type: 3}
+      propertyPath: m_Name
+      value: Button (2)
       objectReference: {fileID: 0}
     - target: {fileID: 5106840098431816703, guid: 6c99f5df485ae0247add859197057ce6,
         type: 3}
