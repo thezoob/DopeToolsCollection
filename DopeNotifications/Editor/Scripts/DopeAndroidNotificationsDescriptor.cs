@@ -23,7 +23,7 @@ using UnityEngine;
 
         //Custom Icon
         private Texture2D texture;
-        private readonly string icon = "Assets/DopeNotifications/Editor/Resources/icons/android.png";
+        private readonly string icon = "Assets/DopeToolsCollection/DopeNotifications/Editor/Resources/icons/android.png";
 
         protected override EditorTexture DefaultIcon()
         {
