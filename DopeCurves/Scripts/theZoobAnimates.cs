@@ -6,11 +6,12 @@ using UnityEngine;
 [UnitTitle("DopeCurves")]
 [UnitSubtitle("Custom Animations for UI and more")]
 [UnitCategory("DopeUI/Animation")]
+[RenamedFrom("zoobAnimUnit")]
 
 [TypeIcon(typeof(AnimationCurve))]
 
 [Inspectable]
-public class zoobAnimUnit : Unit
+public class theZoobAnimates : Unit
 {
   
     [DoNotSerialize]
