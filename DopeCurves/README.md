@@ -1,4 +1,7 @@
 # DopeCurves
+
+![DopeCurves](https://i.imgur.com/2R1QLfD.png)
+
 ## Thanks for downloading DopeCurves.
 
 Please watch the video here: https://www.youtube.com/c/thezoobtube to learn how to use DopeCurves.
@@ -44,16 +47,17 @@ Please watch the video here: https://www.youtube.com/c/thezoobtube to learn how 
 		- **SU_RangeMapper_Generic** - Clamps an incoming value between a Pair of Values and Outputs them to a Value between another Pair of Values. (Generic version of RangeMapper Super Unit)
 
 
-Copyright 2020 Zubair Parkar.
+### Copyright 2020 Zubair Parkar.
 
---------------------------------------
-https://www.thezoob.net
-https://instagram.com/thezoob.art
---------------------------------------
+
+###### https://www.thezoob.net
+###### https://instagram.com/thezoob.art
+
 
 SUPPORT
 --------------------------------------
-This Package is hosted on https://lifeandstylemedia.com/creators.php
+This Package is hosted on Github.
+Store Listing can be found here: https://lifeandstylemedia.com/creators.php
 
 Please post any question to the Life And Style Media Discord:
 https://discord.gg/r4CYmf
