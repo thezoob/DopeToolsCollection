@@ -2,11 +2,12 @@
 # DopeAds Unity
 
 ## Thanks for Downloading DopeAds.
-DopeAds is a collection of Scripts and SuperUnits to make Ad creation with Bolt easier.
+### DopeAds is a collection of Scripts and SuperUnits to make Ad creation with Bolt easier. It provides the OnUnityAds events from IUnityAdsListener Interface that are not available by default.
 ![DopeAds](https://i.imgur.com/o1Z4x47.png)
-It provides the OnUnityAds events from IUnityAdsListener Interface that are not available by default.
 
-How to use:
+
+
+### How to use:
 
 1. Make sure Ads are enabled in your Project.
 2. Add UnityEngine.Advertisements to Assembly Options and both Advertisement and Advertisement.Banner in the Type Options under Unit Options Wizard.
