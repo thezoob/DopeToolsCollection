@@ -6,6 +6,7 @@
  --------------------------------------------
 ### DopeAds Unity
 ----------------------------------------------
+#### Requires *Advertisement* Package from Unity
 ![DopeAds](https://i.imgur.com/o1Z4x47.png)
 ----------------------------------------------
 ### DopeCurves
