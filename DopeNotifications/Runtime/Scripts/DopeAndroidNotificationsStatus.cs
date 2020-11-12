@@ -21,16 +21,6 @@ using Unity.Notifications.Android;
         [PortLabel("id")]
         public ValueInput Identifier;
 
-        //[DoNotSerialize]
-        //public ControlOutput Scheduled;
-
-        //[DoNotSerialize]
-        //public ControlOutput Delivered;
-
-        //[DoNotSerialize]
-        //public ControlOutput Unknown;
-
-
         [UnitHeaderInspectable]
         public AndroidStatusType androidStatus;
 
@@ -67,18 +57,11 @@ using Unity.Notifications.Android;
             });
 
             exit = ControlOutput("exit");
-            //Scheduled = ControlOutput("Scheduled");
-            //Delivered = ControlOutput("Delivered");
-            //Unknown = ControlOutput("Unknown");
 
             Identifier = ValueInput<int>("Identifier");
 
-
             Requirement(Identifier, enter);
             Succession(enter, exit);
-            //Succession(enter, Scheduled);
-            //Succession(enter, Delivered);
-            //Succession(enter, Unknown);
 
         }
 
