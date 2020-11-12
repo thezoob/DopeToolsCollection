@@ -1,4 +1,5 @@
 
+# DopeAds Unity
 
 ## Thanks for Downloading DopeAds.
 DopeAds is a collection of Scripts and SuperUnits to make Ad creation with Bolt easier.
@@ -9,8 +10,8 @@ How to use:
 
 1. Make sure Ads are enabled in your Project.
 2. Add UnityEngine.Advertisements to Assembly Options and both Advertisement and Advertisement.Banner in the Type Options under Unit Options Wizard.
-![Assemblies](https://i.imgur.com/0XNotIr.png)
-![Types](https://i.imgur.com/ZMLsCOX.png)
+  - ![Assemblies](https://i.imgur.com/0XNotIr.png)
+  - ![Types](https://i.imgur.com/ZMLsCOX.png)
 3. Create a new GameObject with name AdManager, attach the Ads.cs script to it.
 4. Add a Flow Machine and create a new Macro. Add the Initialize method to a Start Event to Initialize the Ads.
 5. Add OnUnityAds Super Unit to the same Macro.
