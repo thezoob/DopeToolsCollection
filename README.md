@@ -1,5 +1,5 @@
 # DopeToolsCollection
-## A Collection of Super Units and Custom Units for _Unity Visual Scripting_ also known as _Bolt_.
+## Useful Super Units and Custom Units for _Unity Visual Scripting_ also known as _Bolt_.
  ### Dope Notifications Android
  --------------------------------------------
  #### Requires *Mobile Notifications* Package from Unity
