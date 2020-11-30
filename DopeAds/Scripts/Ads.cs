@@ -2,53 +2,57 @@
 using UnityEngine.Advertisements;
 using Bolt;
 
-public class Ads : MonoBehaviour, IUnityAdsListener
-{
-    private string rewardedVideoAd = "rewardedVideo" ;
+namespace Dopetools.DopeAds {
 
-    private GameObject adManager;
+    public class Ads : MonoBehaviour, IUnityAdsListener
+    {
+        private string rewardedVideoAd = "rewardedVideo";
 
-    private void OnEnable()
-    {
-        adManager = this.gameObject;
-    }
-    private void Start()
-    {
-        Advertisement.AddListener(this);
-    }
+        private GameObject adManager;
 
-    public void OnUnityAdsDidError(string message)
-    {
-        CustomEvent.Trigger(adManager, "onUnityAdsDidError", message);
-    }
-
-    public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
-    {
-        switch (showResult)
+        private void OnEnable()
         {
-            case ShowResult.Failed:
-                break;
-            case ShowResult.Finished:
-                if (placementId == rewardedVideoAd)
-                { CustomEvent.Trigger(adManager, "OnUnityAdsDidFinish", null); }
-                else  { CustomEvent.Trigger(adManager, "onUnityAdsInterstitialFinish", null); }
-                break;
-            case ShowResult.Skipped:
-                CustomEvent.Trigger(adManager, "OnUnityAdsDidSkip", null);
-                break;
+            adManager = this.gameObject;
         }
-        
-    }
+        private void Start()
+        {
+            Advertisement.AddListener(this);
+        }
 
-    public void OnUnityAdsDidStart(string placementId)
-    {
-        CustomEvent.Trigger(adManager, "OnUnityAdsDidStart", null);
-    }
+        public void OnUnityAdsDidError(string message)
+        {
+            CustomEvent.Trigger(adManager, "onUnityAdsDidError", message);
+        }
 
-    public void OnUnityAdsReady(string placementId)
-    {
-        CustomEvent.Trigger(adManager, "OnUnityAdsReady", null);
-    }
+        public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
+        {
+            switch (showResult)
+            {
+                case ShowResult.Failed:
+                    break;
+                case ShowResult.Finished:
+                    if (placementId == rewardedVideoAd)
+                    { CustomEvent.Trigger(adManager, "OnUnityAdsDidFinish", null); }
+                    else { CustomEvent.Trigger(adManager, "onUnityAdsInterstitialFinish", null); }
+                    break;
+                case ShowResult.Skipped:
+                    CustomEvent.Trigger(adManager, "OnUnityAdsDidSkip", null);
+                    break;
+            }
 
+        }
+
+        public void OnUnityAdsDidStart(string placementId)
+        {
+            CustomEvent.Trigger(adManager, "OnUnityAdsDidStart", null);
+        }
+
+        public void OnUnityAdsReady(string placementId)
+        {
+            CustomEvent.Trigger(adManager, "OnUnityAdsReady", null);
+        }
+
+
+    }
 
 }

@@ -4,7 +4,7 @@ using Unity.Notifications.Android;
 
 [UnitSurtitle("Dope Notifications Android")]
 [UnitTitle("Send Delayed Notification")]
-[UnitCategory("DopeNotifications/Android")]
+[UnitCategory("DopeTools/Notifications/Android")]
 [RenamedFrom("DopeNotifications")]
 
     public sealed class DopeAndroidNotifications : Unit

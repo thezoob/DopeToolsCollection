@@ -3,11 +3,11 @@ using Bolt;
 using Unity.Notifications.Android;
 
 
-    [UnitSurtitle("Dope Notifications Android")]
-    [UnitTitle("Check Status")]
-    [UnitCategory("DopeNotifications/Android")]
+[UnitSurtitle("Dope Notifications Android")]
+[UnitTitle("Check Status")]
+[UnitCategory("DopeTools/Notifications/Android")]
 
-    public sealed class DopeAndroidNotificationsStatus : Unit
+public sealed class DopeAndroidNotificationsStatus : Unit
     {
         [DoNotSerialize]
         [PortLabelHidden]
@@ -22,6 +22,7 @@ using Unity.Notifications.Android;
         public ValueInput Identifier;
 
         [UnitHeaderInspectable]
+        [InspectorToggleLeft]
         public AndroidStatusType androidStatus;
 
         private int id;

@@ -1,101 +1,102 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Ludiq;
 using Bolt;
 using UnityEngine.Advertisements;
 
-
-public class DopeUnityAds : MachineEventUnit<EmptyEventArgs>, IGraphElementWithData, IUnityAdsListener
+namespace Dopetools.DopeAds
 {
-    public new class Data : EventUnit<EmptyEventArgs>.Data
+
+    public class DopeUnityAds : MachineEventUnit<EmptyEventArgs>, IGraphElementWithData, IUnityAdsListener
     {
-        public string placementId;
-    }
+        public new class Data : EventUnit<EmptyEventArgs>.Data
+        {
+            public string placementId;
+        }
 
-    public override IGraphElementData CreateData()
-    {
-        return new Data();
-    }
+        public override IGraphElementData CreateData()
+        {
+            return new Data();
+        }
 
-    protected override string hookName => EventHooks.Update;
+        protected override string hookName => EventHooks.Update;
 
-    [DoNotSerialize]
-    [PortLabel("PlacementId")]
-    public ValueInput placementIdValue { get; private set; }
-
-
-    //[DoNotSerialize]
-    //public int shouldTriggerNextUpdateTicker;
+        [DoNotSerialize]
+        [PortLabel("PlacementId")]
+        public ValueInput placementIdValue { get; private set; }
 
 
-    //protected override bool ShouldTrigger(Flow flow, EmptyEventArgs args)
-    //{
-    //    var data = flow.stack.GetElementData<Data>(this);
+        //[DoNotSerialize]
+        //public int shouldTriggerNextUpdateTicker;
 
-    //    if (!data.isListening)
-    //    {
-    //        return false;
-    //    }
 
-    //    if (shouldTriggerNextUpdateTicker > data.LastObservedUpdateTicker)
-    //    {
-    //        data.LastObservedUpdateTicker = shouldTriggerNextUpdateTicker;
-    //        return true;
-    //    }
-    //    else
-    //        return false;
-    //}
+        //protected override bool ShouldTrigger(Flow flow, EmptyEventArgs args)
+        //{
+        //    var data = flow.stack.GetElementData<Data>(this);
 
-    protected override void Definition()
-    {
-        base.Definition();
-        placementIdValue = ValueInput(nameof(placementIdValue), string.Empty);
+        //    if (!data.isListening)
+        //    {
+        //        return false;
+        //    }
 
-    }
+        //    if (shouldTriggerNextUpdateTicker > data.LastObservedUpdateTicker)
+        //    {
+        //        data.LastObservedUpdateTicker = shouldTriggerNextUpdateTicker;
+        //        return true;
+        //    }
+        //    else
+        //        return false;
+        //}
 
-    public override void StartListening(GraphStack stack)
-    {
-        base.StartListening(stack);
+        protected override void Definition()
+        {
+            base.Definition();
+            placementIdValue = ValueInput(nameof(placementIdValue), string.Empty);
 
-        var data = stack.GetElementData<Data>(this);
-    }
+        }
 
-    protected override bool ShouldTrigger(Flow flow, EmptyEventArgs args)
-    {
-        var data = flow.stack.GetElementData<Data>(this);
+        public override void StartListening(GraphStack stack)
+        {
+            base.StartListening(stack);
 
-        if (!data.isListening) {return false; }
-        else if (start) {return true; }
-        else if (ready) {return true; }
-        else if (finish) { return true; }
-        else if (error) { return true; }
-        return false;
-        
-    }
+            var data = stack.GetElementData<Data>(this);
+        }
 
-    public bool error;
-    public bool finish;
-    public bool start;
-    public bool ready;
+        protected override bool ShouldTrigger(Flow flow, EmptyEventArgs args)
+        {
+            var data = flow.stack.GetElementData<Data>(this);
 
-    public void OnUnityAdsDidError(string message)
-    {
-        error = true;
-    }
+            if (!data.isListening) { return false; }
+            else if (start) { return true; }
+            else if (ready) { return true; }
+            else if (finish) { return true; }
+            else if (error) { return true; }
+            return false;
 
-    public void OnUnityAdsDidFinish(string placementIdValue, ShowResult showResult)
-    {
-        finish = true;
-    }
+        }
 
-    public void OnUnityAdsDidStart(string placementIdValue)
-    {
-        start = true;
-    }
+        public bool error;
+        public bool finish;
+        public bool start;
+        public bool ready;
 
-    public void OnUnityAdsReady(string placementIdValue)
-    {
-        ready = true;
+        public void OnUnityAdsDidError(string message)
+        {
+            error = true;
+        }
+
+        public void OnUnityAdsDidFinish(string placementIdValue, ShowResult showResult)
+        {
+            finish = true;
+        }
+
+        public void OnUnityAdsDidStart(string placementIdValue)
+        {
+            start = true;
+        }
+
+        public void OnUnityAdsReady(string placementIdValue)
+        {
+            ready = true;
+        }
     }
 }

@@ -4,7 +4,7 @@ using Unity.Notifications.Android;
 
 [UnitSurtitle("Dope Notifications Android")]
 [UnitTitle("Schedule Notification")]
-[UnitCategory("DopeNotifications/Android")]
+[UnitCategory("DopeTools/Notifications/Android")]
 
 public sealed class DopeAndroidScheduleNotification : Unit
 {
