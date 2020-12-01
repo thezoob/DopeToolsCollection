@@ -1,4 +1,5 @@
-﻿using Bolt;
+﻿#if UNITY_IOS
+using Bolt;
 using Ludiq;
 using UnityEngine;
 
@@ -24,7 +25,7 @@ namespace Dopetools.DopeNotifications {
 
         //Custom Icon
         private Texture2D texture;
-        private readonly string icon = "Assets/DopeNotifications/Editor/Resources/icons/appleIcon.png";
+        private readonly string icon = "Assets/DopeToolsCollection/DopeNotifications/Editor/Resources/icons/appleIcon.png";
 
         protected override EditorTexture DefaultIcon()
         {
@@ -68,3 +69,4 @@ namespace Dopetools.DopeNotifications {
     }
 
 }
+#endif

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿#if UNITY_IOS
+using UnityEngine;
 using Bolt;
 using Ludiq;
 using Unity.Notifications.iOS;
@@ -100,3 +101,4 @@ namespace Dopetools.DopeNotifications
     }
 
 }
+#endif

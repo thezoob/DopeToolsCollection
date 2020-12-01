@@ -60,7 +60,7 @@ public sealed class DopeAndroidScheduleNotification : Unit
 
         Title = ValueInput("Title", string.Empty);
         Text = ValueInput("Text", string.Empty);
-        DateTimeValue = ValueInput("Date and Time", string.Empty);
+        DateTimeValue = ValueInput("Date and Time", "12/25/2020 2:30:00 PM");
         ImportanceValue = ValueInput("Importance", Importance.High);
 
         Notification = ValueOutput<int>("Notification", (Flow flow) => { return dope.InvokeAndroidNotification(title, text, iV, dateTimeValue); });
