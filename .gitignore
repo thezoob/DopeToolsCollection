@@ -61,3 +61,6 @@ crashlytics-build.properties
 
 __DopeToolsInternal/
 __DopeToolsInternal.meta
+
+*.DS_Store
+*.DS_Store.meta
