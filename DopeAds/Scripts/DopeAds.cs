@@ -4,7 +4,7 @@ using Bolt;
 
 namespace Dopetools.DopeAds {
 
-    public class Ads : MonoBehaviour, IUnityAdsListener
+    public class DopeAds : MonoBehaviour, IUnityAdsListener
     {
         private string rewardedVideoAd = "rewardedVideo";
 
@@ -33,7 +33,8 @@ namespace Dopetools.DopeAds {
                 case ShowResult.Finished:
                     if (placementId == rewardedVideoAd)
                     { CustomEvent.Trigger(adManager, "OnUnityAdsDidFinish", null); }
-                    else { CustomEvent.Trigger(adManager, "onUnityAdsInterstitialFinish", null); }
+                    else
+                    { CustomEvent.Trigger(adManager, "onUnityAdsInterstitialFinish", null); }
                     break;
                 case ShowResult.Skipped:
                     CustomEvent.Trigger(adManager, "OnUnityAdsDidSkip", null);
