@@ -1,24 +1,27 @@
-﻿using Ludiq;
+﻿#if UNITY_ANDROID
+using Ludiq;
 using Bolt;
 using UnityEngine;
 
-    [Descriptor(typeof(DopeAndroidNotificationsStatus))]
-    public class DopeAndroidNotificationsStatusDescriptor : UnitDescriptor<DopeAndroidNotificationsStatus>
+namespace Dopetools.DopeNotifications
+{
+    [Descriptor(typeof(DopeAndroidNotifications))]
+    public class DopeAndroidNotificationsDescriptor : UnitDescriptor<DopeAndroidNotifications>
     {
-        public DopeAndroidNotificationsStatusDescriptor(DopeAndroidNotificationsStatus target) : base(target)
+        public DopeAndroidNotificationsDescriptor(DopeAndroidNotifications target) : base(target)
         {
         }
 
 
         protected override string DefaultSummary()
         {
-            return "Events based on Status of Android Notification.";
+            return "Simplify Android Notifications.";
         }
 
         // Unit Summary
         protected override string DefinedSummary()
         {
-            return "Events based on Status of Android Notification.";
+            return "Simplify Android Notifications.";
         }
 
         //Custom Icon
@@ -50,9 +53,12 @@ using UnityEngine;
         {
             base.DefinedPort(port, description);
 
-            if (port == target.enter) description.summary = "Enter Flow.";
-            if (port == target.exit) description.summary = "Exit Flow.";
-            if (port == target.Identifier) description.summary = "Identifier from Sent Notification";
+            if (port == target.Title) description.summary = "Notification Title";
+            if (port == target.Text) description.summary = "The Body of the Notification will contain this Text.";
+            if (port == target.Delay) description.summary = "Time delay in Seconds.";
 
         }
     }
+}
+
+#endif

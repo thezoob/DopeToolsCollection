@@ -1,13 +1,16 @@
-﻿using Ludiq;
+﻿#if UNITY_ANDROID
+using Ludiq;
 using Bolt;
 using Unity.Notifications.Android;
 
-[UnitSurtitle("Dope Notifications Android")]
-[UnitTitle("Send Delayed Notification")]
-[UnitCategory("DopeTools/Notifications/Android")]
-[RenamedFrom("DopeNotifications")]
+namespace Dopetools.DopeNotifications
+{
+    [UnitSurtitle("Dope Notifications Android")]
+    [UnitTitle("Schedule Notification")]
+    [UnitCategory("DopeTools/Notifications/Android")]
+    [RenamedFrom("DopeAndroidScheduleNotification")]
 
-    public sealed class DopeAndroidNotifications : Unit
+    public sealed class DopeAndroidScheduleNotification : Unit
     {
         [DoNotSerialize]
         [PortLabelHidden]
@@ -24,7 +27,7 @@ using Unity.Notifications.Android;
         public ValueInput Title;
 
         [DoNotSerialize]
-        public ValueInput Delay;
+        public ValueInput DateTimeValue;
 
         [DoNotSerialize]
         public ValueInput ImportanceValue;
@@ -35,11 +38,11 @@ using Unity.Notifications.Android;
         public ValueOutput Notification;
 
 
-        private float d = 0f;
         private Importance iV = Importance.High;
         private string title;
         private string text;
         private DopeAndroidNotify dope = new DopeAndroidNotify();
+        private string dateTimeValue;
 
         private AndroidNotification notification;
 
@@ -47,10 +50,11 @@ using Unity.Notifications.Android;
         {
             enter = ControlInput("enter", (Flow flow) =>
             {
-                d = flow.GetValue<float>(Delay);
+                dateTimeValue = flow.GetValue<string>(DateTimeValue);
                 iV = flow.GetValue<Importance>(ImportanceValue);
                 title = flow.GetValue<string>(Title);
                 text = flow.GetValue<string>(Text);
+
                 return exit;
 
             });
@@ -60,34 +64,15 @@ using Unity.Notifications.Android;
 
             Title = ValueInput("Title", string.Empty);
             Text = ValueInput("Text", string.Empty);
-            Delay = ValueInput("Delay", 0f);
+            DateTimeValue = ValueInput("Date and Time", "12/25/2020 2:30:00 PM");
             ImportanceValue = ValueInput("Importance", Importance.High);
 
-            Notification = ValueOutput<int>("Notification", (Flow flow) => { return dope.InvokeAndroidNotification(title, text, iV, d); });
+            Notification = ValueOutput<int>("Notification", (Flow flow) => { return dope.InvokeAndroidNotification(title, text, iV, dateTimeValue); });
 
             Succession(enter, exit);
         }
 
-        //private int InvokeAndroidNotification()
-        //{
-        //    var c = new AndroidNotificationChannel()
-        //    {
-        //        Id = "channel_id",
-        //        Name = "Default Channel",
-        //        Importance = iV,
-        //        Description = "Generic notifications",
-        //    };
-        //    AndroidNotificationCenter.RegisterNotificationChannel(c);
-
-        //    var notification = new AndroidNotification
-        //    {
-        //        Title = title,
-        //        Text = text,
-        //        FireTime = System.DateTime.Now.AddSeconds(d)
-        //    };
-
-        //    var anc = AndroidNotificationCenter.SendNotification(notification, "channel_id");
-
-        //    return anc;
-        //}
     }
+}
+
+#endif

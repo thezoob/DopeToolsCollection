@@ -1,13 +1,16 @@
-﻿using Ludiq;
+﻿#if UNITY_ANDROID
+using Ludiq;
 using Bolt;
 using Unity.Notifications.Android;
 
+namespace Dopetools.DopeNotifications
+{
+    [UnitSurtitle("Dope Notifications Android")]
+    [UnitTitle("Check Status")]
+    [UnitCategory("DopeTools/Notifications/Android")]
+    [RenamedFrom("DopeAndroidNotificationsStatus")]
 
-[UnitSurtitle("Dope Notifications Android")]
-[UnitTitle("Check Status")]
-[UnitCategory("DopeTools/Notifications/Android")]
-
-public sealed class DopeAndroidNotificationsStatus : Unit
+    public sealed class DopeAndroidNotificationsStatus : Unit
     {
         [DoNotSerialize]
         [PortLabelHidden]
@@ -34,7 +37,7 @@ public sealed class DopeAndroidNotificationsStatus : Unit
 
                 id = flow.GetValue<int>(Identifier);
 
-                
+
 
                 if (AndroidNotificationCenter.CheckScheduledNotificationStatus(id) == NotificationStatus.Scheduled && androidStatus == AndroidStatusType.Scheduled)
                 {
@@ -70,3 +73,6 @@ public sealed class DopeAndroidNotificationsStatus : Unit
     }
 
 
+}
+
+#endif
