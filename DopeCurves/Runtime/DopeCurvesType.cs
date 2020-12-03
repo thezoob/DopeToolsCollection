@@ -7,7 +7,8 @@
         Linear,
         Bounce,
         Bounce02,
-        Spring
+        Spring,
+        SpringTwo
 
     }
 }
