@@ -22,7 +22,6 @@ namespace Dopetools.Animation
         public ValueOutput CurveOut;
 
         [UnitHeaderInspectable]
-
         public DopeCurvesType dopeCurvesType;
 
         private AnimationCurve ZeaseIn;
