@@ -6,9 +6,10 @@
         EasyEase,
         Linear,
         Bounce,
-        Bounce02,
+        BounceTwo,
         Spring,
-        SpringTwo
+        SpringTwo,
+        Overshoot,
 
     }
 }
