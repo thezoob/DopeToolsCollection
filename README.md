@@ -12,7 +12,7 @@
 ----------------------------------------------
 ### DopeCurves
  --------------------------------------------
-![DopeCurves](https://i.imgur.com/2R1QLfD.png)
+![DopeCurves](https://i.imgur.com/3ZMvTxZ.png)
  --------------------------------------------
 
 ### DopeTouch
