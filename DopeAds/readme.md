@@ -13,10 +13,11 @@
 2. Add UnityEngine.Advertisements to Assembly Options and both Advertisement and Advertisement.Banner in the Type Options under Unit Options Wizard.
   - ![Assemblies](https://i.imgur.com/0XNotIr.png)
   - ![Types](https://i.imgur.com/ZMLsCOX.png)
-3. Create a new GameObject with name AdManager, attach the Ads.cs script to it.
-4. Add a Flow Machine and create a new Macro. Add the Initialize method to a Start Event to Initialize the Ads.
-5. Add OnUnityAds Super Unit to the same Macro.
-6. Elsewhere in your project you can add call the PlayInterstitialAd or PlayRewardedAd functions by adding Super Units of the same name.
+3. Create a new project in Unity Dashboard and get the appropriate GameIDs (iOS or Android)
+4. Create a new GameObject with name AdManager, attach the Ads.cs script to it.
+5. Add a Flow Machine and create a new Macro. Add the Initialize method to a Start Event to Initialize the Ads.
+6. Add OnUnityAds Super Unit to the same Macro.
+7. Elsewhere in your project you can add call the PlayInterstitialAd or PlayRewardedAd functions by adding Super Units of the same name.
 
 
 -----------------------------------------
