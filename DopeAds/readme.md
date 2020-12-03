@@ -15,7 +15,7 @@
   - ![Types](https://i.imgur.com/ZMLsCOX.png)
 3. Create a new project in Unity Dashboard and get the appropriate GameIDs (iOS or Android)
 4. Create a new GameObject with name AdManager, attach the Ads.cs script to it.
-5. Add a Flow Machine and create a new Macro. Add the Initialize method to a Start Event to Initialize the Ads.
+5. Add a Flow Machine and create a new Macro. Add the Initialize method to a Start Event to Initialize the Ads. (This is required if you want Callbacks.)
 6. Add OnUnityAds Super Unit to the same Macro.
 7. Elsewhere in your project you can add call the PlayInterstitialAd or PlayRewardedAd functions by adding Super Units of the same name.
 
