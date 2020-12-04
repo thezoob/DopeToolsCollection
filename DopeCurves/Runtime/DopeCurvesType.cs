@@ -7,6 +7,7 @@
         Linear,
         Bounce,
         BounceTwo,
+        //BounceThree,
         Spring,
         SpringTwo,
         Overshoot,

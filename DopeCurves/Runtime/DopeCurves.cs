@@ -33,6 +33,7 @@ namespace Dopetools.Animation
         private AnimationCurve Linear;
         private AnimationCurve Bounce;
         private AnimationCurve BounceTwo;
+        //private AnimationCurve BounceThree;
         private AnimationCurve Spring;
         private AnimationCurve SpringTwo;
         private AnimationCurve Overshoot;
@@ -93,14 +94,13 @@ namespace Dopetools.Animation
                 else if (dopeCurvesType == DopeCurvesType.Bounce)
                 {
                     Bounce = new AnimationCurve();
-                    Bounce.AddKey(new Keyframe(0, 0, 0, 0, 0, .225f));
-                    Bounce.AddKey(new Keyframe(.55f, 1, 10, -16, .1f, .1f));
-                    Bounce.AddKey(new Keyframe(.9f, 1, 10, -16, .1f, .1f));
-                    Bounce.AddKey(new Keyframe(1, 1, 10, -16, .1f, .1f));
+                    Bounce.AddKey(new Keyframe(0f, 0f, 0.005653797f, 0.005653797f, 0f, 0.3173561f));
+                    Bounce.AddKey(new Keyframe(0.5505112f, 0.9988624f, 7.667589f, -7.447864f, 0.1135627f, 0.1615442f));
+                    Bounce.AddKey(new Keyframe(0.8715746f, 1f, 12.94001f, -5.531136f, 0.07680575f, 0.2061866f));
+                    Bounce.AddKey(new Keyframe(1f, 1f, 6.345931f, 6.345931f, 0.1818196f, 0f));
 
                     return Bounce;
                 }
-
                 else if (dopeCurvesType == DopeCurvesType.BounceTwo)
                 {
                     BounceTwo = new AnimationCurve();
