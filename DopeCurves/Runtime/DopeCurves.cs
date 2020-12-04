@@ -36,6 +36,7 @@ namespace Dopetools.Animation
         private AnimationCurve Spring;
         private AnimationCurve SpringTwo;
         private AnimationCurve Overshoot;
+        private AnimationCurve Wobble;
 
 
 
@@ -151,14 +152,24 @@ namespace Dopetools.Animation
                     Overshoot = new AnimationCurve();
                     Overshoot.AddKey(new Keyframe(0f, 0f, 0.5196241f, 0.5196241f, 0f, 0.3483061f));
                     Overshoot.AddKey(new Keyframe(0.2412047f, 1.003699f, 8.351594f, 8.351594f, 0.3333333f, 0.4326186f));
-                    Overshoot.AddKey(new Keyframe(0.547001f, 0.9986308f, -9.947139f, -9.947139f, 0.2570528f, 0.308486f));
-                    Overshoot.AddKey(new Keyframe(0.7322292f, 1.00238f, 5.724898f, 5.724898f, 0.1875436f, 0.4645106f));
-                    Overshoot.AddKey(new Keyframe(1f, 1f, -0.0125994f, -0.0125994f, 0.5247501f, 0f));
+                    Overshoot.AddKey(new Keyframe(0.5145634f, 0.9986308f, -9.947139f, -9.947139f, 0.2570528f, 0.308486f));
+                    Overshoot.AddKey(new Keyframe(0.708802f, 1.00238f, 4.208149f, 4.208149f, 0.1875436f, 0.4025052f));
+                    Overshoot.AddKey(new Keyframe(1f, 1f, -0.009726197f, -0.009726197f, 0.863602f, 0f));
 
                     return Overshoot;
                 }
 
+                else if (dopeCurvesType == DopeCurvesType.Wobble)
+                {
+                    Wobble = new AnimationCurve();
+                    Wobble.AddKey(new Keyframe(0f, 1f, 6.580297f, 7.377839f, 0f, 0.4721865f));
+                    Wobble.AddKey(new Keyframe(0.25f, 1.001412f, -5.292815f, -5.292815f, 0.3164361f, 0.3506964f));
+                    Wobble.AddKey(new Keyframe(0.5f, 1f, 5.295044f, 5.295044f, 0.4449989f, 0.4682603f));
+                    Wobble.AddKey(new Keyframe(0.72007f, 1.005647f, -4.864528f, -4.864528f, 0.03870767f, 0.2156601f));
+                    Wobble.AddKey(new Keyframe(1f, 1f, 0.01301962f, -0.01633183f, 0.6326667f, 0f));
 
+                    return Wobble;
+                }
 
                 return null; });
 

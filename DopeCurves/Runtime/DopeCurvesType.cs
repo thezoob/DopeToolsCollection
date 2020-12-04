@@ -10,6 +10,7 @@
         Spring,
         SpringTwo,
         Overshoot,
+        Wobble,
 
     }
 }
