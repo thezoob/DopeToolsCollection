@@ -1,5 +1,12 @@
 # DopeToolsCollection
 ## Useful Super Units and Custom Units for _Unity Visual Scripting_ also known as _Bolt_.
+
+### DopeCurves
+ --------------------------------------------
+ #### AnimationCurves created by a Professional Animator and Tweening SuperUnits to add Juice to your game!
+![DopeCurves](https://i.imgur.com/3ZMvTxZ.png)
+ --------------------------------------------
+ 
  ### Dope Notifications Android
  --------------------------------------------
  #### Requires *Mobile Notifications* Package from Unity
@@ -14,11 +21,6 @@
 #### Easily and quickly add Interstitial, Rewarded and even Banner Ads in your Android or iOS Game!
 ![DopeAds](https://i.imgur.com/o1Z4x47.png)
 ----------------------------------------------
-### DopeCurves
- --------------------------------------------
- #### AnimationCurves created by a Professional Animator and Tweening SuperUnits to add Juice to your game!
-![DopeCurves](https://i.imgur.com/3ZMvTxZ.png)
- --------------------------------------------
 
 ### DopeTouch
  --------------------------------------------
