@@ -1,6 +1,6 @@
 # DopeCurves
 
-![DopeCurves](https://i.imgur.com/3ZMvTxZ.png)
+![DopeCurves](https://i.imgur.com/SUvfIoC.png)
 
 ## Thanks for downloading DopeCurves.
 
