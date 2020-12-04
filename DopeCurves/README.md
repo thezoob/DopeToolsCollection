@@ -1,6 +1,6 @@
 # DopeCurves
 
-![DopeCurves](https://i.imgur.com/2R1QLfD.png)
+![DopeCurves](https://i.imgur.com/SUvfIoC.png)
 
 ## Thanks for downloading DopeCurves.
 
@@ -9,13 +9,13 @@
 ## FAQ:
 
  1. Why should I use DopeCurves in my project?
-	- DopeCurves is a Custom Unit for Bolt that provides 7 commonly used animations (Ease In, Ease Out, Easy Ease, Linear, Bounce, Bounce 2, and Spring) created by a Professional Animator as Read Only AnimationCurves for you to use in your project.
-	- You can Tween everything from Float values to Vector3 values which can be used to add beautiful animations to any moving Objects in Unity.
+	- DopeCurves is a Custom Unit for Bolt that provides a bunch of commonly used animations (Ease In, Ease Out, Easy Ease, Linear, Bounce, Bounce 2, and Spring, Overshoot etc.) created by a Professional Animator as Read Only AnimationCurves for you to use in your project.
+	- You can use the provided SuperUnits to Tween everything from Float values to Vector3 values which can be used to add beautiful animations to any moving Objects in Unity.
 
  2. Why isn't the unit showing up in the Fuzzy Finder?
 	- Make sure you have Bolt installed in your Project.
 	- Make sure you 'Build Unit Options...' from the Tools>Bolt menu.
-	- If you've tried both but still can't get it working then let us know on the LASM Discord channel linked below.
+	- If you've tried both but still can't get it working then let us know on the Bolt Discord channel linked below.
 
  3. What is an AnimationCurve?
 	- An AnimationCurve stores a collection of Keyframes that can be evaluated over time. 
@@ -56,7 +56,5 @@
 SUPPORT
 --------------------------------------
 This Package is hosted on Github.
-Store Listing can be found here: https://lifeandstylemedia.com/creators.php
-
-Please post any question to the Life And Style Media Discord:
-https://discord.gg/r4CYmf
+Please post any question to the Bolt Discord:
+https://discord.gg/7btxSyBy
