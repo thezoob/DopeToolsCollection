@@ -3,6 +3,8 @@
  ### Dope Notifications Android
  --------------------------------------------
  #### Requires *Mobile Notifications* Package from Unity
+ 
+ #### Easily schedule Native notifications on Android Devices.
 ![Dope Notifications Android](https://i.imgur.com/HF1bZBp.png)
  --------------------------------------------
 ### DopeAds Unity
@@ -20,6 +22,7 @@
 
 ### DopeTouch
  --------------------------------------------
+ #### A set of SuperUnits to make Touch Interaction easier.
 ![DopeTouch](https://i.imgur.com/FvzREVo.png)
  --------------------------------------------
 
