@@ -8,7 +8,8 @@
 ### DopeAds Unity
 ----------------------------------------------
 #### Requires *Advertisement* Package from Unity
-Easily and quickly add Interstitial, Rewarded and even Banner Ads in your Android or iOS Game!
+
+#### Easily and quickly add Interstitial, Rewarded and even Banner Ads in your Android or iOS Game!
 ![DopeAds](https://i.imgur.com/o1Z4x47.png)
 ----------------------------------------------
 ### DopeCurves
