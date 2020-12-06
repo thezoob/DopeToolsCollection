@@ -16,13 +16,13 @@ namespace Dopetools.Animation
 
             protected override string DefaultSummary()
             {
-                return "A Strongly typed set of AnimationCurves created by a Professional Animator.";
+                return "A Set of Read-Only AnimationCurves created by a Professional Animator.";
             }
 
             // Unit Summary
             protected override string DefinedSummary()
             {
-                return "A Strongly typed set of AnimationCurves created by a Professional Animator.";
+                return "A Set of Read-Only AnimationCurves created by a Professional Animator.";
             }
 
         //Custom Icon

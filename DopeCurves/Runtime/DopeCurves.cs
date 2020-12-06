@@ -14,17 +14,31 @@ namespace Dopetools.Animation
     public sealed class DopeCurves : Unit
     {
 
+        public DopeCurves() : base() { }
+
+        //constructor
+        public DopeCurves(DopeCurvesType dopeCurvesType) : base() 
+        {
+            this.dopeCurvesType = dopeCurvesType;
+        }
+
+        public DopeCurves(DopeCurves dopeCurves)
+        {
+            this.dopeCurves = dopeCurves;
+        }
+
+        //Bolt Input and Outputs
         [DoNotSerialize]
         public ControlInput start;
 
         [DoNotSerialize]
         public ValueOutput CurveOut;
 
-        [UnitHeaderInspectable]
-        [Inspectable]
-        [InspectorToggleLeft]
+        
+        [UnitHeaderInspectable] //Shows Type Enum in the Unit header
+        [Inspectable,InspectorToggleLeft] //Shows Type Enum in the Graph Inspector
         [Serialize]
-        [InspectorLabel("Type")]
+        [InspectorLabel("Type")] // Sets a custom label for the Type
         public DopeCurvesType dopeCurvesType;
 
         private AnimationCurve EaseIn;
@@ -38,8 +52,8 @@ namespace Dopetools.Animation
         private AnimationCurve SpringTwo;
         private AnimationCurve Overshoot;
         private AnimationCurve Wobble;
-
-
+        private DopeCurves dopeCurves;
+      
 
         protected override void Definition()
         {
