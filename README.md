@@ -4,7 +4,8 @@
 ### DopeCurves
  --------------------------------------------
  #### AnimationCurves created by a Professional Animator and Tweening SuperUnits to add Juice to your game!
-![DopeCurves](https://i.imgur.com/ediSl6F.png)
+![DopeCurves](https://i.imgur.com/uS7d0AJ.png)
+![DopeCurvesFuzzy](https://i.imgur.com/CPjeaqH.gif)
  --------------------------------------------
  
  ### Dope Notifications Android
