@@ -27,7 +27,7 @@ namespace Dopetools.Animation
 
         protected override UnitCategory Category()
         {
-            return new UnitCategory("DopeTools/Animation/Easeing");
+            return new UnitCategory("DopeTools/Animation/Easing");
         }
     }
 
