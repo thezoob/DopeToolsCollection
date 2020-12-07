@@ -6,7 +6,7 @@ using Unity.Notifications.Android;
 namespace Dopetools.DopeNotifications
 {
     [UnitSurtitle("Dope Notifications Android")]
-    [UnitTitle("Schedule Notification")]
+    [UnitTitle("Send Scheduled Notification")]
     [UnitCategory("DopeTools/Notifications/Android")]
     [RenamedFrom("DopeAndroidScheduleNotification")]
 

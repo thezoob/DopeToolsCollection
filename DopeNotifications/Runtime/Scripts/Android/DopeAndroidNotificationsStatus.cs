@@ -12,6 +12,21 @@ namespace Dopetools.DopeNotifications
 
     public sealed class DopeAndroidNotificationsStatus : Unit
     {
+
+        //constructor
+        public DopeAndroidNotificationsStatus() : base() { }
+
+        //constructor
+        public DopeAndroidNotificationsStatus(AndroidStatusType androidStatusType) : base()
+        {
+            this.androidStatusType = androidStatusType;
+        }
+        //constructor
+        public DopeAndroidNotificationsStatus(DopeAndroidNotificationsStatus dopeAndroidNotificationsStatus)
+        {
+            this.dopeAndroidNotificationsStatus = dopeAndroidNotificationsStatus;
+        }
+
         [DoNotSerialize]
         [PortLabelHidden]
         public ControlInput enter;
@@ -26,7 +41,9 @@ namespace Dopetools.DopeNotifications
 
         [UnitHeaderInspectable]
         [InspectorToggleLeft]
-        public AndroidStatusType androidStatus;
+        public AndroidStatusType androidStatusType;
+
+        private DopeAndroidNotificationsStatus dopeAndroidNotificationsStatus;
 
         private int id;
 
@@ -39,19 +56,19 @@ namespace Dopetools.DopeNotifications
 
 
 
-                if (AndroidNotificationCenter.CheckScheduledNotificationStatus(id) == NotificationStatus.Scheduled && androidStatus == AndroidStatusType.Scheduled)
+                if (AndroidNotificationCenter.CheckScheduledNotificationStatus(id) == NotificationStatus.Scheduled && androidStatusType == AndroidStatusType.Scheduled)
                 {
                     // Replace the currently scheduled notification with a new notification.
                     //AndroidNotificationCenter.UpdateScheduledNotification(identifier, newNotification, "channel_id");
                     return exit;
                 }
-                else if (AndroidNotificationCenter.CheckScheduledNotificationStatus(id) == NotificationStatus.Delivered && androidStatus == AndroidStatusType.Delivered)
+                else if (AndroidNotificationCenter.CheckScheduledNotificationStatus(id) == NotificationStatus.Delivered && androidStatusType == AndroidStatusType.Delivered)
                 {
                     //Remove the notification from the status bar
                     //AndroidNotificationCenter.CancelNotification(id);
                     return exit;
                 }
-                else if (AndroidNotificationCenter.CheckScheduledNotificationStatus(id) == NotificationStatus.Unknown && androidStatus == AndroidStatusType.Unknown)
+                else if (AndroidNotificationCenter.CheckScheduledNotificationStatus(id) == NotificationStatus.Unknown && androidStatusType == AndroidStatusType.Unknown)
                 {
                     //AndroidNotificationCenter.SendNotification(newNotification, "channel_id");
                     return exit;
