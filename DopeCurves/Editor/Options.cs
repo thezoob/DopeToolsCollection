@@ -19,7 +19,7 @@ namespace Dopetools.Animation
         private static IEnumerable<IUnitOption> GetStaticOptions()
         {
             
-            yield return new DopeCurvesUnitOption(new DopeCurves(DopeCurvesType.EaseIn));
+            //yield return new DopeCurvesUnitOption(new DopeCurves(DopeCurvesType.EaseIn)); //hiding because default shows up in fuzzyfinder
             yield return new DopeCurvesUnitOption(new DopeCurves(DopeCurvesType.EaseOut));
             yield return new DopeCurvesUnitOption(new DopeCurves(DopeCurvesType.EasyEase));
             yield return new DopeCurvesUnitOption(new DopeCurves(DopeCurvesType.Linear));
@@ -32,34 +32,6 @@ namespace Dopetools.Animation
 
         }
 
-
-
-        //private static IEnumerable<IUnitOption> GetStaticOptions()
-        //{
-        //    List<Type> result = new List<Type>();
-        //    Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies();
-
-        //    for (int assembly = 0; assembly < assemblies.Length; assembly++)
-        //    {
-        //        Type[] types = assemblies[assembly].GetTypes();
-
-        //        for (int type = 0; type < types.Length; type++)
-        //        {
-        //            if (!types[type].IsAbstract)
-        //            {
-        //                if (typeof(IDopeCurves).IsAssignableFrom(types[type]))
-        //                {
-        //                    yield return new DopeCurvesUnitOption(new DopeCurves());
-        //                    //yield return new DopeCurvesUnitOption(new ActionInvokeUnit(Activator.CreateInstance(types[type] as System.Type) as IAction));
-        //                }
-
-        //            }
-        //        }
-        //    }
-
     } //Options Class
-
-    
-
 
 } //namespace
