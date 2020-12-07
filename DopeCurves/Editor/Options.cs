@@ -11,12 +11,13 @@ namespace Dopetools.Animation
     {
         static Options()
         {
-            UnitBase.staticUnitsExtensions.Add(GetStaticOptions);
+            UnitBase.staticUnitsExtensions.Add(GetDopeCurvesOptions);
+            UnitBase.staticUnitsExtensions.Add(GetDopeEaseingOptions);
         }
 
 
         
-        private static IEnumerable<IUnitOption> GetStaticOptions()
+        private static IEnumerable<IUnitOption> GetDopeCurvesOptions()
         {
             
             //yield return new DopeCurvesUnitOption(new DopeCurves(DopeCurvesType.EaseIn)); //hiding because default shows up in fuzzyfinder
@@ -29,6 +30,52 @@ namespace Dopetools.Animation
             yield return new DopeCurvesUnitOption(new DopeCurves(DopeCurvesType.SpringTwo));
             yield return new DopeCurvesUnitOption(new DopeCurves(DopeCurvesType.Overshoot));
             yield return new DopeCurvesUnitOption(new DopeCurves(DopeCurvesType.Wobble));
+
+        }
+
+        private static IEnumerable<IUnitOption> GetDopeEaseingOptions()
+        {
+            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInBack));
+            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseOutBack));
+            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInOutBack));
+
+            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInBounce));
+            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseOutBounce));
+            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInOutBounce));
+
+            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInCirc));
+            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseOutCirc));
+            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInOutCirc));
+
+            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInCubic));
+            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseOutCubic));
+            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInOutCubic));
+
+            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInElastic));
+            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseOutElastic));
+            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInOutElastic));
+
+            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInExpo));
+            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseOutExpo));
+            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInOutExpo));
+
+            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInQuad));
+            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseOutQuad));
+            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInOutQuad));
+
+            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInQuart));
+            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseOutQuart));
+            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInOutQuart));
+
+            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInQuint));
+            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseOutQuint));
+            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInOutQuint));
+
+            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInSine));
+            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseOutSine));
+            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInOutSine));
+
+            //yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.Linear)); //hiding because default shows up in fuzzyfinder
 
         }
 
