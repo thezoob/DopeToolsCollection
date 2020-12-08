@@ -12,7 +12,7 @@ namespace Dopetools.Animation
 
 
     [UnitTitle("Evaluate")]
-    [UnitSurtitle("DopeEasing")]
+    [UnitSurtitle("DopeEase")]
     [UnitCategory("DopeTools/Animation")]
     [TypeIcon(typeof(AnimationCurve))]
 
@@ -66,7 +66,7 @@ namespace Dopetools.Animation
             isControlRoot = true;
 
             DopeEasingTypeValue = ValueInput("Type", dopeEasingType);
-            TimeValue = ValueInput<float>("Time"); 
+            TimeValue = ValueInput<float>("Time", 0f); 
 
             Enter = ControlInput("Enter", (flow) => 
             {
