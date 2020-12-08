@@ -59,17 +59,17 @@ namespace Dopetools.Animation
             yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseOutExpo));
             yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInOutExpo));
 
-            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInQuad));
-            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseOutQuad));
-            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInOutQuad));
+            //yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInQuad));
+            //yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseOutQuad));
+            //yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInOutQuad));
 
-            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInQuart));
-            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseOutQuart));
-            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInOutQuart));
+            //yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInQuart));
+            //yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseOutQuart));
+            //yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInOutQuart));
 
-            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInQuint));
-            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseOutQuint));
-            yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInOutQuint));
+            //yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInQuint));
+            //yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseOutQuint));
+            //yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInOutQuint));
 
             yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseInSine));
             yield return new DopeEasingUnitOption(new DopeEasingUnit(DopeEasingType.EaseOutSine));

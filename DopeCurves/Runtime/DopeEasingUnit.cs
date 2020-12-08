@@ -198,61 +198,61 @@ namespace Dopetools.Animation
                 }
 
 
-                if (dopeEasingType == DopeEasingType.EaseInQuad)
-                {
-                    float ease = Quadratic.In(inputTime);
-                    return ease;
-                }
+                //if (dopeEasingType == DopeEasingType.EaseInQuad)
+                //{
+                //    float ease = Quadratic.In(inputTime);
+                //    return ease;
+                //}
 
-                if (dopeEasingType == DopeEasingType.EaseOutQuad)
-                {
-                    float ease = Quadratic.Out(inputTime);
-                    return ease;
-                }
+                //if (dopeEasingType == DopeEasingType.EaseOutQuad)
+                //{
+                //    float ease = Quadratic.Out(inputTime);
+                //    return ease;
+                //}
 
-                if (dopeEasingType == DopeEasingType.EaseInOutQuad)
-                {
-                    float ease = Quadratic.InOut(inputTime);
-                    return ease;
-                }
-
-
-                if (dopeEasingType == DopeEasingType.EaseInQuart)
-                {
-                    float ease = Quartic.In(inputTime);
-                    return ease;
-                }
-
-                if (dopeEasingType == DopeEasingType.EaseOutQuart)
-                {
-                    float ease = Quartic.Out(inputTime);
-                    return ease;
-                }
-
-                if (dopeEasingType == DopeEasingType.EaseInOutQuart)
-                {
-                    float ease = Quartic.InOut(inputTime);
-                    return ease;
-                }
+                //if (dopeEasingType == DopeEasingType.EaseInOutQuad)
+                //{
+                //    float ease = Quadratic.InOut(inputTime);
+                //    return ease;
+                //}
 
 
-                if (dopeEasingType == DopeEasingType.EaseInQuint)
-                {
-                    float ease = Quintic.In(inputTime);
-                    return ease;
-                }
+                //if (dopeEasingType == DopeEasingType.EaseInQuart)
+                //{
+                //    float ease = Quartic.In(inputTime);
+                //    return ease;
+                //}
 
-                if (dopeEasingType == DopeEasingType.EaseOutQuint)
-                {
-                    float ease = Quintic.Out(inputTime);
-                    return ease;
-                }
+                //if (dopeEasingType == DopeEasingType.EaseOutQuart)
+                //{
+                //    float ease = Quartic.Out(inputTime);
+                //    return ease;
+                //}
 
-                if (dopeEasingType == DopeEasingType.EaseInOutQuint)
-                {
-                    float ease = Quintic.InOut(inputTime);
-                    return ease;
-                }
+                //if (dopeEasingType == DopeEasingType.EaseInOutQuart)
+                //{
+                //    float ease = Quartic.InOut(inputTime);
+                //    return ease;
+                //}
+
+
+                //if (dopeEasingType == DopeEasingType.EaseInQuint)
+                //{
+                //    float ease = Quintic.In(inputTime);
+                //    return ease;
+                //}
+
+                //if (dopeEasingType == DopeEasingType.EaseOutQuint)
+                //{
+                //    float ease = Quintic.Out(inputTime);
+                //    return ease;
+                //}
+
+                //if (dopeEasingType == DopeEasingType.EaseInOutQuint)
+                //{
+                //    float ease = Quintic.InOut(inputTime);
+                //    return ease;
+                //}
 
 
                 if (dopeEasingType == DopeEasingType.EaseInSine)
