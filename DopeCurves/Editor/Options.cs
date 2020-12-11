@@ -13,10 +13,20 @@ namespace Dopetools.Animation
         {
             UnitBase.staticUnitsExtensions.Add(GetDopeCurvesOptions);
             UnitBase.staticUnitsExtensions.Add(GetDopeEaseingOptions);
+            UnitBase.staticUnitsExtensions.Add(GetDopeTweenOptions);
+        }
+
+        private static IEnumerable<IUnitOption> GetDopeTweenOptions()
+        {
+            yield return new DopeTweenUnitOption(new DopeTweenUnit(DopeTweenInputValueType.Color));
+            yield return new DopeTweenUnitOption(new DopeTweenUnit(DopeTweenInputValueType.Float));
+            yield return new DopeTweenUnitOption(new DopeTweenUnit(DopeTweenInputValueType.String));
+            yield return new DopeTweenUnitOption(new DopeTweenUnit(DopeTweenInputValueType.Vector2));
+            //yield return new DopeTweenUnitOption(new DopeTweenUnit(DopeTweenInputValueType.Vector3)); //hiding because default shows up in fuzzyfinder
+
         }
 
 
-        
         private static IEnumerable<IUnitOption> GetDopeCurvesOptions()
         {
             
