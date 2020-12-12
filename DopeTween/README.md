@@ -20,7 +20,7 @@
 	- An AnimationCurve stores a collection of Keyframes that can be evaluated over time. 
 
  4. How do I use it?
-	- In the FuzzyFinder type in "DopeCurves" and add the unit to your Graph (Macro). 
+	- In the FuzzyFinder type in "DopeTween" and add the unit to your Graph (Macro). 
 	- It's a good idea to cache (Set) the Curves you need as Variables in a Start Method and call (Get) the Variable later on in your project.
 	- Please refer the Demo scene for use cases.
 
