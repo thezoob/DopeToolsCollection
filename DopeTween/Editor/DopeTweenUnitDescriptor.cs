@@ -24,9 +24,20 @@ namespace Dopetools.Tweening
             return "Tween anything that can be tweened!";
         }
 
+        protected override string DefaultTitle()
+        {
+            return target.dopeTweenInputValueType.ToString();
+        }
+
+        protected override string DefinedShortTitle()
+        {
+            return target.dopeTweenInputValueType.ToString();
+        }
+
+        private DopeTweenInputValueType InputValueType;
         //Custom Icon
         private Texture2D texture;
-        private readonly string icon = "Assets/DopeToolsCollection/DopeCurves/Editor/Resources/DopeCurves.png";
+        private readonly string icon = "Assets/DopeToolsCollection/DopeTween/Editor/Resources/DopeTween.png";
 
         protected override EditorTexture DefaultIcon()
         {
@@ -100,6 +111,13 @@ namespace Dopetools.Tweening
                 description.summary = "Event fired when Tweening is completed";
                 description.showLabel = true;
                 description.label = "Done";
+            }
+
+            else if (port == target.DopeEasingTypeValue)
+            {
+                description.summary = "The Type of Easing Value to be applied to the tween.";
+                description.showLabel = false;
+                description.label = "Easing Type";
             }
 
         }

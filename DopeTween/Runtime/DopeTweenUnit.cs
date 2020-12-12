@@ -9,7 +9,7 @@ namespace Dopetools.Tweening
     /// Runs a timer and outputs elapsed and remaining measurements.
     /// </summary>
     [UnitCategory("DopeTools")]
-    [UnitTitle("DopeTween")]
+    [UnitSurtitle("DopeTween")]
     [RenamedFrom("Dopetools.Animation.DopeTweenUnit")]
     public sealed class DopeTweenUnit : Unit, IGraphElementWithData, IGraphEventListener
     {
@@ -29,7 +29,9 @@ namespace Dopetools.Tweening
 
             public bool isListening;
 
-            public DopeTweenInputValueType dopeTweenInput;
+            public DopeEasingType dopeEasingType;
+
+            //public DopeTweenInputValueType dopeTweenInput;
             
             public object resultValue;
 
@@ -64,15 +66,15 @@ namespace Dopetools.Tweening
         [DoNotSerialize, PortLabelHidden]
         public ControlInput start { get; private set; }
 
-        [Serialize, InspectorToggleLeft, Inspectable, InspectorWide, InspectorRange(.1f, 1f)]
+        [Serialize, InspectorToggleLeft, Inspectable, InspectorWide, InspectorRange(.1f, 1f), InspectorLabel("Smooth (Elastic)")]
         private float smooth = .4f;
 
-        [Serialize, InspectorToggleLeft, Inspectable, InspectorWide, InspectorRange(1f, 6f)]
+        [Serialize, InspectorToggleLeft, Inspectable, InspectorWide, InspectorRange(1f, 6f), InspectorLabel("Spring (Elastic)")]
         private float spring = 2f;
 
-        [Serialize, InspectorLabel("Ease"), InspectorWide]
-        [Inspectable, InspectorToggleLeft, UnitHeaderInspectable] //Show Type Options in Header.
-        public DopeEasingType dopeEasingType { get; private set; }
+        //[Serialize, InspectorLabel("Ease"), InspectorWide]
+        //[Inspectable, InspectorToggleLeft, UnitHeaderInspectable] //Show Type Options in Header.
+        //public DopeEasingType dopeEasingType { get; private set; }
 
         [Serialize, InspectorLabel("Tween"), InspectorWide]
         [Inspectable, InspectorToggleLeft] //Show Type Options in Header.
@@ -95,6 +97,11 @@ namespace Dopetools.Tweening
         /// </summary>
         [DoNotSerialize]
         public ValueInput duration { get; private set; }
+
+        [DoNotSerialize]
+        public ValueInput DopeEasingTypeValue { get; private set; }
+
+        public DopeEasingType dopeEasingType { get; private set; }
 
         /// <summary>
         /// Whether to ignore the time scale.
@@ -135,8 +142,7 @@ namespace Dopetools.Tweening
         protected override void Definition()
         {
             isControlRoot = true;
-
-            //if (dopeEasingType == DopeEasingType.EaseInElastic || dopeEasingType == DopeEasingType.EaseInOutElastic || dopeEasingType == DopeEasingType.EaseOutElastic) { check = true; }
+            DopeEasingTypeValue = ValueInput(nameof(dopeEasingType), DopeEasingType.Linear); //set valueinput to variable
 
             if (dopeTweenInputValueType == DopeTweenInputValueType.Vector3)
             {
@@ -242,6 +248,7 @@ namespace Dopetools.Tweening
             data.active = true;
             data.paused = false;
             data.unscaled = flow.GetValue<bool>(unscaledTime);
+            data.dopeEasingType = flow.GetValue<DopeEasingType>(DopeEasingTypeValue);
 
 
             if (dopeTweenInputValueType == DopeTweenInputValueType.Float) { data.A = flow.GetValue<float>(A); data.B = flow.GetValue<float>(B); }
@@ -264,6 +271,7 @@ namespace Dopetools.Tweening
 
         private void AssignMetrics(Flow flow, Data data)
         {
+            dopeEasingType = flow.GetValue<DopeEasingType>(DopeEasingTypeValue);
 
             var ratio = Mathf.Clamp01(data.elapsed / data.duration);
             var value = dopeTweenInputValueType == DopeTweenInputValueType.Float ? Mathf.LerpUnclamped((float)data.A, (float)data.B, EasedValue(ratio)) :
@@ -297,7 +305,7 @@ namespace Dopetools.Tweening
             if (data.elapsed >= data.duration)
             {
                 data.active = false;
-
+                AssignMetrics(flow, data);
                 flow.Invoke(completed);
             }
         }

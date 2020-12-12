@@ -14,8 +14,8 @@ namespace Dopetools.Tweening
         }
         protected override bool showHeaderAddon => true;
         public override bool foregroundRequiresInput => true;
-        protected override bool showTitle => false;
-        protected override bool showSurtitle => false;
+        protected override bool showTitle => true;
+        protected override bool showSurtitle => true;
 
         public object lastValueStored;
 
