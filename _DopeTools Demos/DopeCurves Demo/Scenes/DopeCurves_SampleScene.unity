@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data:
-    _json: '{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":0.0,"y":0.0},"zoom":1.0,"elements":[{"coroutine":true,"defaultValues":{},"position":{"x":-276.0,"y":-144.0},"guid":"f31f62ba-6e54-4402-b7d9-2e6de2fc49bf","$version":"A","$type":"Bolt.Start","$id":"10"},{"nest":{"source":"Macro","macro":0,"embed":null},"defaultValues":{"Duration":{"$content":5.0,"$type":"System.Single"}},"position":{"x":-108.0,"y":-48.0},"guid":"1f88265a-cbe5-466a-a47d-80f3179cd061","$version":"A","$type":"Bolt.SuperUnit","$id":"12"},{"coroutine":false,"defaultValues":{"key":{"$content":"Space","$type":"UnityEngine.KeyCode"},"action":{"$content":"Down","$type":"Ludiq.PressState"}},"position":{"x":-336.0,"y":-48.0},"guid":"4bffc992-804f-4ab3-8493-2532b355ba66","$version":"A","$type":"Bolt.OnKeyboardInput","$id":"15"},{"sourceUnit":{"$ref":"15"},"sourceKey":"trigger","destinationUnit":{"$ref":"12"},"destinationKey":"Enter","guid":"ccba16eb-8d48-4b32-aa3c-38f5994e05ef","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"10"},"sourceKey":"trigger","destinationUnit":{"$ref":"12"},"destinationKey":"Enter","guid":"ce217125-5798-4e4e-ad49-51c4f924b6a0","$type":"Bolt.ControlConnection"}],"$version":"A"}}}'
+    _json: '{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":0.0,"y":0.0},"zoom":1.0,"elements":[{"coroutine":true,"defaultValues":{},"position":{"x":-276.0,"y":-144.0},"guid":"f31f62ba-6e54-4402-b7d9-2e6de2fc49bf","$version":"A","$type":"Bolt.Start","$id":"10"},{"nest":{"source":"Macro","macro":0,"embed":null},"defaultValues":{"Duration":{"$content":5.0,"$type":"System.Single"}},"position":{"x":-108.0,"y":-48.0},"guid":"1f88265a-cbe5-466a-a47d-80f3179cd061","$version":"A","$type":"Bolt.SuperUnit","$id":"12"},{"coroutine":false,"defaultValues":{"key":{"$content":"Space","$type":"UnityEngine.KeyCode"},"action":{"$content":"Down","$type":"Ludiq.PressState"}},"position":{"x":-432.0,"y":-48.0},"guid":"4bffc992-804f-4ab3-8493-2532b355ba66","$version":"A","$type":"Bolt.OnKeyboardInput","$id":"15"},{"sourceUnit":{"$ref":"15"},"sourceKey":"trigger","destinationUnit":{"$ref":"12"},"destinationKey":"Enter","guid":"1a7b6c34-878b-4ef4-b5f2-4e822c1fedb8","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"10"},"sourceKey":"trigger","destinationUnit":{"$ref":"12"},"destinationKey":"Enter","guid":"e21870d9-080e-479f-8cc3-1b8114c13d2f","$type":"Bolt.ControlConnection"}],"$version":"A"}}}'
     _objectReferences:
     - {fileID: 11400000, guid: 8299c33476f80754ca5cefd8a0a90cdc, type: 2}
 --- !u!114 &242410328
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.2509804, g: 0.2509804, b: 0.4784314, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
