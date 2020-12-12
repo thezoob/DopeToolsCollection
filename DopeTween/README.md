@@ -2,7 +2,7 @@
 
 ![DopeTween](https://i.imgur.com/eBeg1aO.png)
 
-## Thanks for downloading DopeCurves.
+## Thanks for downloading DopeTween.
 
 #### Please watch the video here: https://www.youtube.com/c/thezoobtube to learn how to use DopeCurves.
 
