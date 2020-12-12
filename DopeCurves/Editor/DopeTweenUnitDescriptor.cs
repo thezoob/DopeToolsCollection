@@ -2,7 +2,7 @@
 using Bolt;
 using UnityEngine;
 
-namespace Dopetools.Animation
+namespace Dopetools.Tweening
 {
 
 

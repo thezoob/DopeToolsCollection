@@ -2,9 +2,9 @@
 using System;
 using Bolt;
 
-namespace Dopetools.Animation
+namespace Dopetools.Tweening
 {
-
+    [RenamedFrom("Dopetools.Animation.DopeTweenUnitOption")]
     [FuzzyOption(typeof(DopeTweenUnit))]
     public class DopeTweenUnitOption : UnitOption<DopeTweenUnit>
     {

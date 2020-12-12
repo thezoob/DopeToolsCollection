@@ -1,5 +1,7 @@
-﻿namespace Dopetools.Animation
+﻿using Ludiq;
+namespace Dopetools.Tweening
 {
+    [RenamedFrom("Dopetools.Animation.DopeEasingType")]
     public enum DopeEasingType
     {
         //Quadratic,

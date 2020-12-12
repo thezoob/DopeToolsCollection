@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Dopetools.Animation
+namespace Dopetools.Tweening
 { 
 
     #region TweeningLibrary

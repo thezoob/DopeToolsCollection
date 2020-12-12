@@ -3,8 +3,9 @@ using Ludiq;
 using System;
 using UnityEngine;
 
-namespace Dopetools.Animation
+namespace Dopetools.Tweening
 {
+    [RenamedFrom("Dopetools.Animation.DopeTweenUnitWidget")]
     [Widget(typeof(DopeTweenUnit))]
     public sealed class DopeTweenUnitWidget : UnitWidget<DopeTweenUnit>
     {

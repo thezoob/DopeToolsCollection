@@ -3,13 +3,14 @@ using Ludiq;
 using UnityEngine;
 using Bolt;
 
-namespace Dopetools.Animation
+namespace Dopetools.Tweening
 {
     /// <summary>
     /// Runs a timer and outputs elapsed and remaining measurements.
     /// </summary>
     [UnitCategory("DopeTools")]
     [UnitTitle("DopeTween")]
+    [RenamedFrom("Dopetools.Animation.DopeTweenUnit")]
     public sealed class DopeTweenUnit : Unit, IGraphElementWithData, IGraphEventListener
     {
         public sealed class Data : IGraphElementData
