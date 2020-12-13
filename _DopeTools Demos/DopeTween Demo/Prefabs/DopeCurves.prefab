@@ -1217,9 +1217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7345697680642074173}
   - component: {fileID: 5726335309892298051}
-  - component: {fileID: 8445843443880138900}
   - component: {fileID: 1640364669}
-  - component: {fileID: 706948758}
   m_Layer: 5
   m_Name: ButtonHolder
   m_TagString: Untagged
@@ -1271,22 +1269,6 @@ MonoBehaviour:
   _data:
     _json: '{"declarations":{"collection":{"$content":[],"$version":"A"},"$version":"A"}}'
     _objectReferences: []
---- !u!114 &8445843443880138900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8962859168657387525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -57143145, guid: a040fb66244a7f54289914d98ea4ef7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _data:
-    _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
-    _objectReferences:
-    - {fileID: 11400000, guid: 4d93f4fc4dbaeaf44a913ccb185b1bbd, type: 2}
 --- !u!114 &1640364669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1311,19 +1293,6 @@ MonoBehaviour:
   m_Spacing: {x: -45, y: -10}
   m_Constraint: 1
   m_ConstraintCount: 2
---- !u!114 &706948758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8962859168657387525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bcf3e91ea29fcb4eb6eaee184858f6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CustomEventName: Event
 --- !u!1001 &738136691763115478
 PrefabInstance:
   m_ObjectHideFlags: 0
