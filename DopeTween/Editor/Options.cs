@@ -20,7 +20,9 @@ namespace Dopetools.Tweening
             yield return new DopeTweenUnitOption(new DopeTweenUnit(DopeTweenInputValueType.Float));
             yield return new DopeTweenUnitOption(new DopeTweenUnit(DopeTweenInputValueType.String));
             yield return new DopeTweenUnitOption(new DopeTweenUnit(DopeTweenInputValueType.Vector2));
-            yield return new DopeTweenUnitOption(new DopeTweenUnit(DopeTweenInputValueType.Vector3)); 
+            yield return new DopeTweenUnitOption(new DopeTweenUnit(DopeTweenInputValueType.Vector3));
+            yield return new DopeTweenUnitOption(new DopeTweenUnit(DopeTweenInputValueType.Quaternion));
+
 
         }
 

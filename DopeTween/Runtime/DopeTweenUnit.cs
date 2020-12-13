@@ -144,7 +144,7 @@ namespace Dopetools.Tweening
             isControlRoot = true;
             DopeEasingTypeValue = ValueInput(nameof(dopeEasingType), DopeEasingType.Linear); //set valueinput to variable
 
-            if (dopeTweenInputValueType == DopeTweenInputValueType.Vector3)
+            if (dopeTweenInputValueType == DopeTweenInputValueType.Vector3 || dopeTweenInputValueType == DopeTweenInputValueType.Quaternion)
             {
                 A = ValueInput<Vector3>("A", new Vector3(0f, 0f, 0f));
                 B = ValueInput<Vector3>("B", new Vector3(0f, 0f, 0f));
@@ -184,10 +184,20 @@ namespace Dopetools.Tweening
                 dopeTweenInputValueType == DopeTweenInputValueType.Float ? typeof(float) : 
                 dopeTweenInputValueType == DopeTweenInputValueType.String ? typeof(string) : 
                 dopeTweenInputValueType == DopeTweenInputValueType.Vector2 ? typeof(Vector2) : 
-                dopeTweenInputValueType == DopeTweenInputValueType.Vector3 ? typeof(Vector3) : null, "ResultValue");
+                dopeTweenInputValueType == DopeTweenInputValueType.Vector3 ? typeof(Vector3) :
+                dopeTweenInputValueType == DopeTweenInputValueType.Quaternion ? typeof(Quaternion) : null, "ResultValue");
 
+            Succession(start, started);
+            Succession(start, tick);
+            Succession(start, completed);
+            Requirement(A, start);
+            if (dopeTweenInputValueType != DopeTweenInputValueType.String) { Requirement(B, start); }
+            Requirement(DopeEasingTypeValue, start);
+            Requirement(duration, start);
+            Requirement(unscaledTime, start);
+            Assignment(start, ResultValue);
 
-        }
+        } //Definition
 
         public IGraphElementData CreateData()
         {
@@ -261,6 +271,8 @@ namespace Dopetools.Tweening
 
             else if (dopeTweenInputValueType == DopeTweenInputValueType.String) { data.A = flow.GetValue<string>(A); data.B = flow.GetValue<string>(B); }
 
+            else if (dopeTweenInputValueType == DopeTweenInputValueType.Quaternion) { data.A = flow.GetValue<Vector3>(A); data.B = flow.GetValue<Vector3>(B); }
+
             AssignMetrics(flow, data);
 
             return started;
@@ -276,6 +288,7 @@ namespace Dopetools.Tweening
             var ratio = Mathf.Clamp01(data.elapsed / data.duration);
             var value = dopeTweenInputValueType == DopeTweenInputValueType.Float ? Mathf.LerpUnclamped((float)data.A, (float)data.B, EasedValue(ratio)) :
                         dopeTweenInputValueType == DopeTweenInputValueType.Vector3 ? Vector3.LerpUnclamped((Vector3)data.A, (Vector3)data.B, EasedValue(ratio)) :
+                        dopeTweenInputValueType == DopeTweenInputValueType.Quaternion ? Quaternion.LerpUnclamped(Quaternion.Euler((Vector3)data.A), Quaternion.Euler((Vector3)data.B), EasedValue(ratio)) :
                         dopeTweenInputValueType == DopeTweenInputValueType.Vector2 ? Vector2.LerpUnclamped((Vector2)data.A, (Vector2)data.B, EasedValue(ratio)) :
                         dopeTweenInputValueType == DopeTweenInputValueType.Color ? Color.LerpUnclamped((Color)data.A, (Color)data.B, EasedValue(ratio)) :
                         dopeTweenInputValueType == DopeTweenInputValueType.String ? (string)data.A : data.A; 
@@ -305,7 +318,7 @@ namespace Dopetools.Tweening
             if (data.elapsed >= data.duration)
             {
                 data.active = false;
-                AssignMetrics(flow, data);
+                //AssignMetrics(flow, data);
                 flow.Invoke(completed);
             }
         }
