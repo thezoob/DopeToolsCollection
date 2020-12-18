@@ -6,7 +6,7 @@ using Bolt;
 namespace Dopetools.Tweening
 {
     /// <summary>
-    /// Runs a timer and outputs elapsed and remaining measurements.
+    /// Runs a timer for Duration entered and outputs tweened values from A to B.
     /// </summary>
     [UnitCategory("DopeTools")]
     [UnitSurtitle("DopeTween")]
@@ -59,9 +59,7 @@ namespace Dopetools.Tweening
         private DopeTweenUnit dopeTweenUnit;
 
         /// <summary>
-        /// The moment at which to start the timer.
-        /// If the timer is already started, this will reset it.
-        /// If the timer is paused, this will resume it.
+        /// The moment at which to start the tween.
         /// </summary>
         [DoNotSerialize, PortLabelHidden]
         public ControlInput start { get; private set; }
