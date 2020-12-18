@@ -8,7 +8,17 @@ namespace Dopetools.Tweening
 
     [Descriptor(typeof(DopeTweenUnit))]
     public class DopeTweenUnitDescriptor : UnitDescriptor<DopeTweenUnit>
-    {
+    {   
+        //finds path to root of DopeTween folder. Thanks Jason from LASM. Requires a file in the root folder of DopeTween      
+        private static string PathOf(string fileName) 
+        {
+            var files = UnityEditor.AssetDatabase.FindAssets(fileName);
+            if (files.Length == 0) return string.Empty;
+            var assetPath = UnityEditor.AssetDatabase.GUIDToAssetPath(files[0]).Replace(fileName, string.Empty);
+            return assetPath;
+        }
+
+
         public DopeTweenUnitDescriptor(DopeTweenUnit target) : base(target)
         {
         }
@@ -35,9 +45,10 @@ namespace Dopetools.Tweening
         }
 
         private DopeTweenInputValueType InputValueType;
+        
         //Custom Icon
         private Texture2D texture;
-        private readonly string icon = "Assets/DopeToolsCollection/DopeTween/Editor/Resources/DopeTween.png";
+        private readonly string icon = PathOf("dopetweenroot") + "Editor/Resources/DopeTween.png"; //returns image path by using the r
 
         protected override EditorTexture DefaultIcon()
         {
