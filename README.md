@@ -3,9 +3,8 @@
 
 ### DopeCurves
  --------------------------------------------
- #### AnimationCurves created by a Professional Animator and Tweening SuperUnits to add Juice to your game!
-![DopeCurves](https://i.imgur.com/uS7d0AJ.png)
-![DopeCurvesFuzzy](https://i.imgur.com/CPjeaqH.gif)
+ #### Tweening units based on animate.js and Tweening SuperUnits to add Juice to your game!
+
  --------------------------------------------
  
  ### Dope Notifications Android
