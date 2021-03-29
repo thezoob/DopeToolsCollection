@@ -1,6 +1,12 @@
 # DopeTween
 
-![DopeTween](https://i.imgur.com/eBeg1aO.png)
+
+ --------------------------------------------
+ #### Tweening units based on animate.js and Tweening SuperUnits to add Juice to your game!
+![DopeTween](https://i.imgur.com/1gmIuYv.png)
+![DopeTween Types](https://i.imgur.com/zKdjd0E.png)
+![DopeTween Inspector](https://i.imgur.com/bAGMwOf.png)
+ --------------------------------------------
 
 ## Thanks for downloading DopeTween.
 
