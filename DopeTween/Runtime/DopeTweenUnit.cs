@@ -1,7 +1,6 @@
 ﻿using System;
-using Ludiq;
+using Unity.VisualScripting;
 using UnityEngine;
-using Bolt;
 
 namespace Dopetools.Tweening
 {

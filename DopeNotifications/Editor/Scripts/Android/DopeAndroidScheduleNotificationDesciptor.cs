@@ -1,6 +1,5 @@
 ﻿#if UNITY_ANDROID
-using Ludiq;
-using Bolt;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Dopetools.DopeNotifications
