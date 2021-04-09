@@ -20,7 +20,7 @@
  2. Why isn't the unit showing up in the Fuzzy Finder?
 	- Make sure you have Unity Visual Scripting installed in your Project (Currently only supported on Unity 2021.)
 	- Project Settings > Visual Scripting > Regerate Units.
-	![UVS Menu](https://i.imgur.com/hWZIJF0.png)
+	- ![UVS Menu](https://i.imgur.com/hWZIJF0.png)
 	- If you've tried both but still can't get it working then let us know on the Bolt Discord channel linked below.
 
  3. How do I use it?
@@ -30,6 +30,9 @@
 
  4. Which SuperUnits are included? What do they do?
 	- **The SuperUnits included are as follows:**
+
+5. The SuperUnits don't work! What do I do?
+	- Don't worry, Unity has included a fix missing scripts button in the Project Settings menu for this exact reason!
 
 		- **SU_RangeMapper_Float** - Clamps an incoming float value between a Pair of Values and Outputs them to a Value between another Pair of Values.
 		- **SU_RangeMapper_Vector3** - Clamps an incoming Vector3 value between a Pair of Values and Outputs them to a Value between another Pair of Values.
