@@ -31,16 +31,16 @@
  4. Which SuperUnits are included? What do they do?
 	- **The SuperUnits included are as follows:**
 
-5. The SuperUnits don't work! What do I do?
-	- Don't worry, Unity has included a fix missing scripts button in the Project Settings menu for this exact reason!
-
 		- **SU_RangeMapper_Float** - Clamps an incoming float value between a Pair of Values and Outputs them to a Value between another Pair of Values.
 		- **SU_RangeMapper_Vector3** - Clamps an incoming Vector3 value between a Pair of Values and Outputs them to a Value between another Pair of Values.
 		- **SU_RangeMapper_Generic** - Clamps an incoming value between a Pair of Values and Outputs them to a Value between another Pair of Values. (Generic version of RangeMapper Super Unit)
 
+5. The SuperUnits don't work! What do I do?
+	- Don't worry, Unity has included a fix missing scripts button in the Project Settings menu for this exact reason!
+	
 --------------------------------------
 
-### Copyright 2020 Zubair Parkar.
+### Copyright 2021 Zubair Parkar.
 ###### https://www.thezoob.net
 ###### https://instagram.com/thezoob.art
 --------------------------------------
