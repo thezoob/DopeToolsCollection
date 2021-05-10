@@ -1,6 +1,8 @@
 # DopeToolsCollection
 ## Useful Super Units and Custom Units for _Unity Visual Scripting_ also known as _Bolt_.
 
+## NOTE: PLEASE REMOVE THE FOLDERS FOR THE TOOLS YOU DON'T NEED TO AVOID ERRORS!
+
 ### DopeTween
  --------------------------------------------
  #### Tweening units based on animate.js and Tweening SuperUnits to add Juice to your game!
