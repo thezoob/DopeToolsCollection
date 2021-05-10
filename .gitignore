@@ -58,7 +58,8 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
-
+DopeOdinEditorTools/
+DopeOdinEditorTools.meta
 __DopeToolsInternal/
 __DopeToolsInternal.meta
 
