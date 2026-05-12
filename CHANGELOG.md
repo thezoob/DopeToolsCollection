@@ -12,7 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Added Unity 6 setup documentation under `Documentation~`.
 - Added `Samples~/README.md` guidance for manually copying/importing the existing `_DopeTools Demos` content.
 - Documented required Visual Scripting dependency and optional Mobile Notifications / Advertisement Legacy integrations.
-- Added legacy Bolt 1.4 conditional source support and replacement asmdef templates.
+- Added legacy Bolt 1.4 conditional source support and replacement asmdef templates, including Unity 6 Ads and unified Mobile Notifications support.
 
 ### Changed
 

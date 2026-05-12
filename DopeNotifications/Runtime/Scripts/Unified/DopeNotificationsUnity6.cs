@@ -1,5 +1,10 @@
-#if DOPETOOLS_HAS_MOBILE_NOTIFICATIONS && !DOPETOOLS_BOLT_LEGACY
+#if DOPETOOLS_HAS_MOBILE_NOTIFICATIONS
+#if DOPETOOLS_BOLT_LEGACY
+using Bolt;
+using Ludiq;
+#else
 using Unity.VisualScripting;
+#endif
 using System;
 using System.Collections;
 using Unity.Notifications;

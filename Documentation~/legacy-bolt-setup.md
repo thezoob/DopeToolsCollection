@@ -1,14 +1,14 @@
 # Legacy Bolt 1.4 Setup
 
-DopeTools defaults to Unity 6 / Unity Visual Scripting, but the C# unit sources can also compile against Asset Store Bolt 1.4.x (`Bolt` / `Ludiq`).
+DopeTools defaults to Unity 6 / Unity Visual Scripting, but the C# unit sources can also compile against Asset Store Bolt 1.4.x (`Bolt` / `Ludiq`) while still using Unity 6-era Ads and Mobile Notifications packages.
 
 ## Requirements
 
-- A Unity version supported by your Bolt 1.4.x install.
+- Unity 6, or a Unity version where your Bolt 1.4.x production setup is already working.
 - Bolt 1.4.x assemblies present in the project.
 - Optional packages only for optional modules:
-  - Mobile Notifications for DopeNotifications.
-  - Advertisement Legacy for DopeAds.
+  - Mobile Notifications (`com.unity.mobile.notifications`) 2.4+ for DopeNotifications, including unified notification units.
+  - Advertisement Legacy (`com.unity.ads`) 4.x for DopeAds.
 
 ## Setup
 
@@ -28,7 +28,7 @@ DopeTools defaults to Unity 6 / Unity Visual Scripting, but the C# unit sources 
 - DopeTween behavior and serialized unit class names are kept stable.
 - The default asmdefs reference `Unity.VisualScripting.*`; the legacy replacements reference `Bolt.*` and `Ludiq.*` assemblies.
 - Only one asmdef profile should be active at once.
-- The Unity 6 unified notification units are disabled in legacy Bolt mode; use the original Android/iOS notification units there.
+- Unity 6 unified notification units and the modern Ads units are available in legacy Bolt mode when the matching Unity packages are installed.
 - If your Unity version is too old for asmdef `versionDefines`, define optional module symbols manually when needed:
   - `DOPETOOLS_HAS_UNITY_ADS`
   - `DOPETOOLS_HAS_MOBILE_NOTIFICATIONS`

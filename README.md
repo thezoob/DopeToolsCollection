@@ -28,14 +28,15 @@ Install optional packages from Package Manager before using those units.
 
 ## Legacy Bolt 1.4 support
 
-The checked-in package profile targets Unity 6 / Unity Visual Scripting. The C# units also support legacy Asset Store Bolt via conditional imports.
+The checked-in package profile targets Unity 6 / Unity Visual Scripting. The C# units also support legacy Asset Store Bolt via conditional imports, including the Unity 6 Advertisement Legacy and Mobile Notifications integrations.
 
 For Bolt 1.4.x projects:
 
 1. Copy this package into `Assets/DopeToolsCollection` or another non-UPM asset layout instead of using the Git URL profile.
 2. Copy the replacement asmdefs from [`Documentation~/legacy-bolt-asmdefs`](Documentation~/legacy-bolt-asmdefs) over the matching package files.
 3. Add `DOPETOOLS_BOLT_LEGACY` to **Project Settings > Player > Scripting Define Symbols**.
-4. Run Bolt's unit option rebuild command.
+4. Install `com.unity.ads` 4.x and/or `com.unity.mobile.notifications` 2.4+ if you use Ads or Notifications.
+5. Run Bolt's unit option rebuild command.
 
 Only use one asmdef profile at a time: default Unity Visual Scripting asmdefs, or the legacy Bolt replacements.
 

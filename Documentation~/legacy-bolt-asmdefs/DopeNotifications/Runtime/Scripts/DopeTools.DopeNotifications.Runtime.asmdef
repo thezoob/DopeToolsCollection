@@ -6,6 +6,7 @@
         "Ludiq.Graphs.Runtime",
         "Bolt.Core.Runtime",
         "Bolt.Flow.Runtime",
+        "Unity.Notifications.Unified",
         "Unity.Notifications.Android",
         "Unity.Notifications.iOS"
     ],
