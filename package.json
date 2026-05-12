@@ -1,0 +1,25 @@
+{
+  "name": "net.thezoob.dopetoolscollection",
+  "version": "1.0.0",
+  "displayName": "DopeTools Collection",
+  "description": "Bolt / Unity Visual Scripting units, super units, and helpers for tweening, touch, UI, ads, and notifications.",
+  "unity": "6000.0",
+  "author": {
+    "name": "Zubair Parkar",
+    "url": "https://www.thezoob.net"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "dependencies": {
+    "com.unity.visualscripting": "1.9.5",
+    "com.unity.mobile.notifications": "2.4.0",
+    "com.unity.ads": "4.12.0"
+  },
+  "keywords": [
+    "bolt",
+    "visual-scripting",
+    "unity-6",
+    "tween",
+    "notifications",
+    "ads"
+  ]
+}
