@@ -1,32 +1,67 @@
+# DopeAds Unity 6
 
-# DopeAds Unity
+DopeAds now targets Unity 6 with Unity's **Advertisement Legacy** package (`com.unity.ads` 4.x).
 
-## Thanks for Downloading DopeAds.
-### DopeAds is a collection of Scripts and SuperUnits to make Ad creation with Bolt easier. It provides the OnUnityAds events from IUnityAdsListener Interface that are not available by default.
-![DopeAds](https://i.imgur.com/o1Z4x47.png)
+> Unity Ads direct integration is now considered legacy by Unity. For long-term monetization Unity recommends LevelPlay mediation. This update keeps the original DopeAds workflow working against the current Advertisement Legacy API.
 
+## Requirements
 
+1. Unity 6.
+2. Package Manager > Unity Registry > **Advertisement Legacy** (`com.unity.ads`).
+3. Bolt / Unity Visual Scripting with DopeTools imported.
+4. Run **Tools > Bolt > Build Unit Options...** after importing/updating scripts.
 
-### How to use:
+## What changed
 
-1. Make sure Ads are enabled in your Project.
-2. Add UnityEngine.Advertisements to Assembly Options and both Advertisement and Advertisement.Banner in the Type Options under Unit Options Wizard.
-  - ![Assemblies](https://i.imgur.com/0XNotIr.png)
-  - ![Types](https://i.imgur.com/ZMLsCOX.png)
-3. Create a new project in Unity Dashboard and get the appropriate GameIDs (iOS or Android)
-4. Create a new GameObject with name AdManager, attach the Ads.cs script to it.
-5. Add a Flow Machine and create a new Macro. Add the Initialize method to a Start Event to Initialize the Ads. (This is required if you want Callbacks.)
-6. Add OnUnityAds Super Unit to the same Macro.
-7. Elsewhere in your project you can add call the PlayInterstitialAd or PlayRewardedAd functions by adding Super Units of the same name.
+The old API used `IUnityAdsListener`, `Advertisement.AddListener`, and `Advertisement.IsReady`. Those are no longer the modern flow.
 
+The Unity 6-compatible flow is now:
 
------------------------------------------
-MIT License
+1. Initialize SDK.
+2. Load an Ad Unit ID.
+3. Wait for `OnUnityAdsReady`.
+4. Show the loaded Ad Unit ID.
 
-Copyright 2020 Zubair Parkar. https://thezoob.net
+The new **Show Ad** unit will also queue a show request and auto-load first if needed, but explicit load/wait/show is still the clearest production flow.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+## New Bolt units
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+Find these in the Fuzzy Finder under `DopeTools/Ads`:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+- **Initialize Ads**
+- **Load Ad**
+- **Show Ad**
+- **Is Ad Loaded**
+- **Show Banner**
+- **Hide Banner**
+
+Use platform-specific Ad Unit IDs. Defaults follow Unity's current sample naming:
+
+- `Interstitial_Android` / `Interstitial_iOS`
+- `Rewarded_Android` / `Rewarded_iOS`
+- `Banner_Android` / `Banner_iOS`
+
+## Callback events
+
+Attach `DopeAds` to an object or let the units create a `Dope Ads` object automatically. SDK callbacks are forwarded as Bolt Custom Events on that object:
+
+- `OnUnityAdsInitializationComplete`
+- `OnUnityAdsInitializationFailed`
+- `OnUnityAdsReady`
+- `OnUnityAdsLoadFailed`
+- `OnUnityAdsDidStart`
+- `OnUnityAdsShowClick`
+- `OnUnityAdsDidFinish` — rewarded completed
+- `onUnityAdsInterstitialFinish` — interstitial completed
+- `OnUnityAdsDidSkip`
+- `onUnityAdsDidError`
+- `OnUnityAdsShowFailed`
+- `OnUnityBannerLoaded`
+- `OnUnityBannerLoadFailed`
+- `OnUnityBannerShown`
+- `OnUnityBannerClicked`
+- `OnUnityBannerHidden`
+
+## Legacy super units
+
+The old `.asset` super units may still reference removed Unity Ads members such as `Advertisement.IsReady`. Prefer the new C# Bolt units above for Unity 6.

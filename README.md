@@ -11,18 +11,18 @@
 ![DopeTween Inspector](https://i.imgur.com/bAGMwOf.png)
  --------------------------------------------
  
- ### Dope Notifications Android
+ ### Dope Notifications
  --------------------------------------------
- #### Requires *Mobile Notifications* Package from Unity
+ #### Unity 6 update: requires *Mobile Notifications* Package from Unity (`com.unity.mobile.notifications` 2.4+)
  
- #### Easily schedule Native notifications on Android Devices.
+ #### Cross-platform Bolt units for initializing, requesting permission, and scheduling notifications on Android/iOS.
 ![Dope Notifications Android](https://i.imgur.com/HF1bZBp.png)
  --------------------------------------------
 ### DopeAds Unity
 ----------------------------------------------
-#### Requires *Advertisement* Package from Unity
+#### Unity 6 update: requires *Advertisement Legacy* Package from Unity (`com.unity.ads` 4.x)
 
-#### Easily and quickly add Interstitial, Rewarded and even Banner Ads in your Android or iOS Game!
+#### Adds Unity 6-compatible Initialize / Load / Show / Banner Bolt units using the modern listener-based Ads API.
 ![DopeAds](https://i.imgur.com/o1Z4x47.png)
 ----------------------------------------------
 
