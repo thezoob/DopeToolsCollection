@@ -461,7 +461,7 @@ namespace Dopetools.DopeNotifications
             DopeNotifications.EnsureInitialized();
 
             var reference = stack.ToReference();
-            Action<Notification> callback = notification => Trigger(reference, notification);
+            NotificationCenter.NotificationReceivedCallback callback = notification => Trigger(reference, notification);
             NotificationCenter.OnNotificationReceived += callback;
             graphData.callback = callback;
             graphData.isListening = true;
@@ -476,7 +476,7 @@ namespace Dopetools.DopeNotifications
                 return;
             }
 
-            NotificationCenter.OnNotificationReceived -= (Action<Notification>)graphData.callback;
+            NotificationCenter.OnNotificationReceived -= (NotificationCenter.NotificationReceivedCallback)graphData.callback;
             graphData.callback = null;
             graphData.isListening = false;
         }
@@ -514,7 +514,7 @@ namespace Dopetools.DopeNotifications
                 graphData.title = notification.Title;
                 graphData.text = notification.Text;
                 graphData.data = notification.Data;
-                graphData.identifier = notification.Identifier;
+                graphData.identifier = notification.Identifier ?? 0;
 
                 flow.Invoke(received);
             }

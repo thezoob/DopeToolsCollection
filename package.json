@@ -8,7 +8,7 @@
     "name": "Zubair Parkar",
     "url": "https://www.thezoob.net"
   },
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "MIT",
   "dependencies": {
     "com.unity.visualscripting": "1.9.5",
     "com.unity.mobile.notifications": "2.4.0",

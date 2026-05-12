@@ -310,7 +310,7 @@ namespace Dopetools.Tweening
 
             else if (dopeTweenInputValueType == DopeTweenInputValueType.Color) { data.A = flow.GetValue<Color>(A); data.B = flow.GetValue<Color>(B); }
 
-            else if (dopeTweenInputValueType == DopeTweenInputValueType.String) { data.A = flow.GetValue<string>(A); data.B = flow.GetValue<string>(B); }
+            else if (dopeTweenInputValueType == DopeTweenInputValueType.String) { data.A = flow.GetValue<string>(A); data.B = null; }
 
             else if (dopeTweenInputValueType == DopeTweenInputValueType.Quaternion) { data.A = flow.GetValue<Vector3>(A); data.B = flow.GetValue<Vector3>(B); }
 
@@ -376,6 +376,11 @@ namespace Dopetools.Tweening
 
         private static float ElapsedRatio(Data data)
         {
+            if (data.duration <= 0f)
+            {
+                return 1f;
+            }
+
             return Mathf.Clamp01(data.elapsed / data.duration);
         }
 
