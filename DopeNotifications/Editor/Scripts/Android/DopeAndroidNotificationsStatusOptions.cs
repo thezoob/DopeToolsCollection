@@ -1,6 +1,11 @@
 #if DOPETOOLS_HAS_MOBILE_NOTIFICATIONS
 #if UNITY_ANDROID
+#if DOPETOOLS_BOLT_LEGACY
+using Bolt;
+using Ludiq;
+#else
 using Unity.VisualScripting;
+#endif
 using System;
 
 namespace Dopetools.DopeNotifications

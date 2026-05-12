@@ -1,0 +1,21 @@
+{
+    "name": "DopeTools.DopeTween.Runtime",
+    "rootNamespace": "Dopetools.Tweening",
+    "references": [
+        "Ludiq.Core.Runtime",
+        "Ludiq.Graphs.Runtime",
+        "Bolt.Core.Runtime",
+        "Bolt.Flow.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "DOPETOOLS_BOLT_LEGACY"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

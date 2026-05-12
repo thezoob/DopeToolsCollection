@@ -1,5 +1,10 @@
 #if DOPETOOLS_HAS_UNITY_ADS
+#if DOPETOOLS_BOLT_LEGACY
+using Bolt;
+using Ludiq;
+#else
 using Unity.VisualScripting;
+#endif
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -71,7 +76,11 @@ namespace Dopetools.DopeAds
             {
                 if (instance == null)
                 {
+#if UNITY_2022_1_OR_NEWER
                     instance = FindAnyObjectByType<DopeAds>();
+#else
+                    instance = FindObjectOfType<DopeAds>();
+#endif
                 }
 
                 return instance;

@@ -26,6 +26,19 @@ Optional integrations require extra packages only if you use those modules:
 
 Install optional packages from Package Manager before using those units.
 
+## Legacy Bolt 1.4 support
+
+The checked-in package profile targets Unity 6 / Unity Visual Scripting. The C# units also support legacy Asset Store Bolt via conditional imports.
+
+For Bolt 1.4.x projects:
+
+1. Copy this package into `Assets/DopeToolsCollection` or another non-UPM asset layout instead of using the Git URL profile.
+2. Copy the replacement asmdefs from [`Documentation~/legacy-bolt-asmdefs`](Documentation~/legacy-bolt-asmdefs) over the matching package files.
+3. Add `DOPETOOLS_BOLT_LEGACY` to **Project Settings > Player > Scripting Define Symbols**.
+4. Run Bolt's unit option rebuild command.
+
+Only use one asmdef profile at a time: default Unity Visual Scripting asmdefs, or the legacy Bolt replacements.
+
 ## Module/dependency notes
 
 DopeTween and the pure macro folders are isolated from optional package integrations with assembly definitions. When embedded locally, DopeAds and DopeNotifications C# code is guarded so missing optional SDKs should not break DopeTween.
@@ -39,6 +52,7 @@ DopeTween and the pure macro folders are isolated from optional package integrat
 ## Documentation and demos
 
 - Unity 6 setup: [`Documentation~/unity-6-setup.md`](Documentation~/unity-6-setup.md)
+- Legacy Bolt setup: [`Documentation~/legacy-bolt-setup.md`](Documentation~/legacy-bolt-setup.md)
 - Demo import guidance: [`Samples~/README.md`](Samples~/README.md)
 
 The existing `_DopeTools Demos` folder is intentionally kept at its original path to avoid GUID and graph-reference churn. Copy/import those demos manually when you need them.

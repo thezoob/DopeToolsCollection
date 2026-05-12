@@ -1,5 +1,10 @@
 
+#if DOPETOOLS_BOLT_LEGACY
+using Bolt;
+using Ludiq;
+#else
 using Unity.VisualScripting;
+#endif
 namespace Dopetools.Tweening
 {
     [RenamedFrom("Dopetools.Animation.DopeTweenInputValueType")]

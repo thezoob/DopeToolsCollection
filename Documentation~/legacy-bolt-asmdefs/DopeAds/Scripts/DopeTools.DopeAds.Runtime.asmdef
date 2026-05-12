@@ -1,0 +1,29 @@
+{
+    "name": "DopeTools.DopeAds.Runtime",
+    "rootNamespace": "Dopetools.DopeAds",
+    "references": [
+        "Ludiq.Core.Runtime",
+        "Ludiq.Graphs.Runtime",
+        "Bolt.Core.Runtime",
+        "Bolt.Flow.Runtime",
+        "UnityEngine.Advertisements"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "DOPETOOLS_BOLT_LEGACY",
+        "DOPETOOLS_HAS_UNITY_ADS"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.unity.ads",
+            "expression": "[4.0.0,5.0.0)",
+            "define": "DOPETOOLS_HAS_UNITY_ADS"
+        }
+    ],
+    "noEngineReferences": false
+}

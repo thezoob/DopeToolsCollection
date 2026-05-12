@@ -1,4 +1,9 @@
+#if DOPETOOLS_BOLT_LEGACY
+using Bolt;
+using Ludiq;
+#else
 using Unity.VisualScripting;
+#endif
 using System;
 using System.Collections.Generic;
 using System.Reflection;

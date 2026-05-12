@@ -1,4 +1,4 @@
-#if DOPETOOLS_HAS_MOBILE_NOTIFICATIONS
+#if DOPETOOLS_HAS_MOBILE_NOTIFICATIONS && !DOPETOOLS_BOLT_LEGACY
 using Unity.VisualScripting;
 using System;
 using System.Collections;

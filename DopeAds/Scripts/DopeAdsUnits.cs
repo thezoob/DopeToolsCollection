@@ -1,5 +1,10 @@
 #if DOPETOOLS_HAS_UNITY_ADS
+#if DOPETOOLS_BOLT_LEGACY
+using Bolt;
+using Ludiq;
+#else
 using Unity.VisualScripting;
+#endif
 using System;
 using UnityEngine.Advertisements;
 

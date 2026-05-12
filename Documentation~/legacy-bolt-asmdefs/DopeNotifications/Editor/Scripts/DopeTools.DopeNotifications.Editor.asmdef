@@ -1,0 +1,35 @@
+{
+    "name": "DopeTools.DopeNotifications.Editor",
+    "rootNamespace": "Dopetools.DopeNotifications",
+    "references": [
+        "DopeTools.DopeNotifications.Runtime",
+        "Ludiq.Core.Runtime",
+        "Ludiq.Graphs.Runtime",
+        "Bolt.Core.Runtime",
+        "Bolt.Flow.Runtime",
+        "Ludiq.Core.Editor",
+        "Ludiq.Graphs.Editor",
+        "Bolt.Core.Editor",
+        "Bolt.Flow.Editor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "DOPETOOLS_BOLT_LEGACY",
+        "DOPETOOLS_HAS_MOBILE_NOTIFICATIONS"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.unity.mobile.notifications",
+            "expression": "[2.4.0,)",
+            "define": "DOPETOOLS_HAS_MOBILE_NOTIFICATIONS"
+        }
+    ],
+    "noEngineReferences": false
+}

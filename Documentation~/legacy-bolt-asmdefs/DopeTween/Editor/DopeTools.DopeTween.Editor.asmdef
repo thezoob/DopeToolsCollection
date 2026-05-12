@@ -1,0 +1,28 @@
+{
+    "name": "DopeTools.DopeTween.Editor",
+    "rootNamespace": "Dopetools.Tweening",
+    "references": [
+        "DopeTools.DopeTween.Runtime",
+        "Ludiq.Core.Runtime",
+        "Ludiq.Graphs.Runtime",
+        "Bolt.Core.Runtime",
+        "Bolt.Flow.Runtime",
+        "Ludiq.Core.Editor",
+        "Ludiq.Graphs.Editor",
+        "Bolt.Core.Editor",
+        "Bolt.Flow.Editor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "DOPETOOLS_BOLT_LEGACY"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
