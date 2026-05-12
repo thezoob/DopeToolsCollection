@@ -21,6 +21,8 @@
 
  4. How do I use it?
 	- In the FuzzyFinder type in "DopeTween" and add the unit to your Graph (Macro). 
+	- Use Start to begin the tween. Optional Pause, Resume, and Cancel control inputs can manage a running tween; Cancel stops without firing Done.
+	- Read ResultValue on Tick for the tweened value. Additional value outputs expose Elapsed Seconds, Elapsed Ratio, Remaining Seconds, and Remaining Ratio.
 	- It's a good idea to cache (Set) the Curves you need as Variables in a Start Method and call (Get) the Variable later on in your project.
 	- Please refer the Demo scene for use cases.
 

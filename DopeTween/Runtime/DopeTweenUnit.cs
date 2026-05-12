@@ -64,6 +64,15 @@ namespace Dopetools.Tweening
         [DoNotSerialize, PortLabelHidden]
         public ControlInput start { get; private set; }
 
+        [DoNotSerialize]
+        public ControlInput pause { get; private set; }
+
+        [DoNotSerialize]
+        public ControlInput resume { get; private set; }
+
+        [DoNotSerialize]
+        public ControlInput cancel { get; private set; }
+
         [Serialize, InspectorToggleLeft, Inspectable, InspectorWide, InspectorRange(.1f, 1f), InspectorLabel("Smooth (Elastic)")]
         private float smooth = .4f;
 
@@ -114,6 +123,15 @@ namespace Dopetools.Tweening
         [DoNotSerialize]
         public ControlOutput started { get; private set; }
 
+        [DoNotSerialize]
+        public ControlOutput paused { get; private set; }
+
+        [DoNotSerialize]
+        public ControlOutput resumed { get; private set; }
+
+        [DoNotSerialize]
+        public ControlOutput cancelled { get; private set; }
+
         /// <summary>
         /// Called each frame while the timer is active.
         /// </summary>
@@ -130,10 +148,17 @@ namespace Dopetools.Tweening
         public ValueOutput ResultValue;
 
 
-        public IUnitValuePort elapsedSeconds { get; private set; }
-        public IUnitValuePort elapsedRatio { get; private set; }
-        public IUnitValuePort remainingSeconds { get; private set; }
-        public IUnitValuePort remainingRatio { get; private set; }
+        [DoNotSerialize]
+        public ValueOutput elapsedSeconds { get; private set; }
+
+        [DoNotSerialize]
+        public ValueOutput elapsedRatio { get; private set; }
+
+        [DoNotSerialize]
+        public ValueOutput remainingSeconds { get; private set; }
+
+        [DoNotSerialize]
+        public ValueOutput remainingRatio { get; private set; }
 
         //private bool check;
 
@@ -170,11 +195,17 @@ namespace Dopetools.Tweening
             }
 
             start = ControlInput(nameof(start), Start);
+            pause = ControlInput(nameof(pause), Pause);
+            resume = ControlInput(nameof(resume), Resume);
+            cancel = ControlInput(nameof(cancel), Cancel);
 
             duration = ValueInput(nameof(duration), 1f);
             unscaledTime = ValueInput(nameof(unscaledTime), false);
 
             started = ControlOutput(nameof(started));
+            paused = ControlOutput(nameof(paused));
+            resumed = ControlOutput(nameof(resumed));
+            cancelled = ControlOutput(nameof(cancelled));
             tick = ControlOutput(nameof(tick));
             completed = ControlOutput(nameof(completed));
 
@@ -185,15 +216,27 @@ namespace Dopetools.Tweening
                 dopeTweenInputValueType == DopeTweenInputValueType.Vector3 ? typeof(Vector3) :
                 dopeTweenInputValueType == DopeTweenInputValueType.Quaternion ? typeof(Quaternion) : null, "ResultValue");
 
+            elapsedSeconds = ValueOutput<float>(nameof(elapsedSeconds), GetElapsedSeconds);
+            elapsedRatio = ValueOutput<float>(nameof(elapsedRatio), GetElapsedRatio);
+            remainingSeconds = ValueOutput<float>(nameof(remainingSeconds), GetRemainingSeconds);
+            remainingRatio = ValueOutput<float>(nameof(remainingRatio), GetRemainingRatio);
+
             Succession(start, started);
             Succession(start, tick);
             Succession(start, completed);
+            Succession(pause, paused);
+            Succession(resume, resumed);
+            Succession(cancel, cancelled);
             Requirement(A, start);
             if (dopeTweenInputValueType != DopeTweenInputValueType.String) { Requirement(B, start); }
             Requirement(DopeEasingTypeValue, start);
             Requirement(duration, start);
             Requirement(unscaledTime, start);
             Assignment(start, ResultValue);
+            Assignment(start, elapsedSeconds);
+            Assignment(start, elapsedRatio);
+            Assignment(start, remainingSeconds);
+            Assignment(start, remainingRatio);
 
         } //Definition
 
@@ -276,21 +319,80 @@ namespace Dopetools.Tweening
             return started;
         }
 
+        private ControlOutput Pause(Flow flow)
+        {
+            var data = flow.stack.GetElementData<Data>(this);
 
-        
+            if (data.active)
+            {
+                data.paused = true;
+            }
+
+            return paused;
+        }
+
+        private ControlOutput Resume(Flow flow)
+        {
+            var data = flow.stack.GetElementData<Data>(this);
+
+            if (data.active)
+            {
+                data.paused = false;
+            }
+
+            return resumed;
+        }
+
+        private ControlOutput Cancel(Flow flow)
+        {
+            var data = flow.stack.GetElementData<Data>(this);
+
+            data.active = false;
+            data.paused = false;
+
+            return cancelled;
+        }
+
+        private float GetElapsedSeconds(Flow flow)
+        {
+            return flow.stack.GetElementData<Data>(this).elapsed;
+        }
+
+        private float GetElapsedRatio(Flow flow)
+        {
+            return ElapsedRatio(flow.stack.GetElementData<Data>(this));
+        }
+
+        private float GetRemainingSeconds(Flow flow)
+        {
+            var data = flow.stack.GetElementData<Data>(this);
+            return Mathf.Max(0f, data.duration - data.elapsed);
+        }
+
+        private float GetRemainingRatio(Flow flow)
+        {
+            return 1f - ElapsedRatio(flow.stack.GetElementData<Data>(this));
+        }
+
+        private static float ElapsedRatio(Data data)
+        {
+            return Mathf.Clamp01(data.elapsed / data.duration);
+        }
 
         private void AssignMetrics(Flow flow, Data data)
         {
-            dopeEasingType = flow.GetValue<DopeEasingType>(DopeEasingTypeValue);
+            data.dopeEasingType = flow.GetValue<DopeEasingType>(DopeEasingTypeValue);
 
-            var ratio = Mathf.Clamp01(data.elapsed / data.duration);
-            var value = dopeTweenInputValueType == DopeTweenInputValueType.Float ? Mathf.LerpUnclamped((float)data.A, (float)data.B, EasedValue(ratio)) :
-                        dopeTweenInputValueType == DopeTweenInputValueType.Vector3 ? Vector3.LerpUnclamped((Vector3)data.A, (Vector3)data.B, EasedValue(ratio)) :
-                        dopeTweenInputValueType == DopeTweenInputValueType.Quaternion ? Quaternion.LerpUnclamped(Quaternion.Euler((Vector3)data.A), Quaternion.Euler((Vector3)data.B), EasedValue(ratio)) :
-                        dopeTweenInputValueType == DopeTweenInputValueType.Vector2 ? Vector2.LerpUnclamped((Vector2)data.A, (Vector2)data.B, EasedValue(ratio)) :
-                        dopeTweenInputValueType == DopeTweenInputValueType.Color ? Color.LerpUnclamped((Color)data.A, (Color)data.B, EasedValue(ratio)) :
-                        dopeTweenInputValueType == DopeTweenInputValueType.String ? (string)data.A : data.A; 
+            var ratio = ElapsedRatio(data);
+            var easedValue = EasedValue(data.dopeEasingType, ratio);
+            var value = dopeTweenInputValueType == DopeTweenInputValueType.Float ? Mathf.LerpUnclamped((float)data.A, (float)data.B, easedValue) :
+                        dopeTweenInputValueType == DopeTweenInputValueType.Vector3 ? Vector3.LerpUnclamped((Vector3)data.A, (Vector3)data.B, easedValue) :
+                        dopeTweenInputValueType == DopeTweenInputValueType.Quaternion ? Quaternion.LerpUnclamped(Quaternion.Euler((Vector3)data.A), Quaternion.Euler((Vector3)data.B), easedValue) :
+                        dopeTweenInputValueType == DopeTweenInputValueType.Vector2 ? Vector2.LerpUnclamped((Vector2)data.A, (Vector2)data.B, easedValue) :
+                        dopeTweenInputValueType == DopeTweenInputValueType.Color ? Color.LerpUnclamped((Color)data.A, (Color)data.B, easedValue) :
+                        dopeTweenInputValueType == DopeTweenInputValueType.String ? (string)data.A : data.A;
 
+            data.resultValue = value;
             flow.SetValue(ResultValue, value);
 
         }
@@ -321,205 +423,57 @@ namespace Dopetools.Tweening
             }
         }
 
-        private float EasedValue(float inputTime)
+        private float EasedValue(DopeEasingType easingType, float inputTime)
         {
-
-            if (dopeEasingType == DopeEasingType.Linear)
+            switch (easingType)
             {
-                float ease = Linear.Lin(inputTime);
-                return ease;
+                case DopeEasingType.Linear:
+                    return Linear.Lin(inputTime);
+                case DopeEasingType.EaseInBack:
+                    return Back.In(inputTime);
+                case DopeEasingType.EaseOutBack:
+                    return Back.Out(inputTime);
+                case DopeEasingType.EaseInOutBack:
+                    return Back.InOut(inputTime);
+                case DopeEasingType.EaseInBounce:
+                    return Bounce.In(inputTime);
+                case DopeEasingType.EaseOutBounce:
+                    return Bounce.Out(inputTime);
+                case DopeEasingType.EaseInOutBounce:
+                    return Bounce.InOut(inputTime);
+                case DopeEasingType.EaseInCirc:
+                    return Circular.In(inputTime);
+                case DopeEasingType.EaseOutCirc:
+                    return Circular.Out(inputTime);
+                case DopeEasingType.EaseInOutCirc:
+                    return Circular.InOut(inputTime);
+                case DopeEasingType.EaseInCubic:
+                    return Cubic.In(inputTime);
+                case DopeEasingType.EaseOutCubic:
+                    return Cubic.Out(inputTime);
+                case DopeEasingType.EaseInOutCubic:
+                    return Cubic.InOut(inputTime);
+                case DopeEasingType.EaseInElastic:
+                    return Elastic.In(inputTime, smooth, spring);
+                case DopeEasingType.EaseOutElastic:
+                    return Elastic.Out(inputTime, smooth, spring);
+                case DopeEasingType.EaseInOutElastic:
+                    return Elastic.InOut(inputTime, smooth, spring);
+                case DopeEasingType.EaseInExpo:
+                    return Exponential.In(inputTime);
+                case DopeEasingType.EaseOutExpo:
+                    return Exponential.Out(inputTime);
+                case DopeEasingType.EaseInOutExpo:
+                    return Exponential.InOut(inputTime);
+                case DopeEasingType.EaseInSine:
+                    return Sinusoidal.In(inputTime);
+                case DopeEasingType.EaseOutSine:
+                    return Sinusoidal.Out(inputTime);
+                case DopeEasingType.EaseInOutSine:
+                    return Sinusoidal.InOut(inputTime);
+                default:
+                    return 0f;
             }
-            if (dopeEasingType == DopeEasingType.EaseInBack)
-            {
-                float ease = Back.In(inputTime);
-                return ease;
-            }
-
-            if (dopeEasingType == DopeEasingType.EaseOutBack)
-            {
-                float ease = Back.Out(inputTime);
-                return ease;
-            }
-
-            if (dopeEasingType == DopeEasingType.EaseInOutBack)
-            {
-                float ease = Back.InOut(inputTime);
-                return ease;
-            }
-
-
-            if (dopeEasingType == DopeEasingType.EaseInBounce)
-            {
-                float ease = Bounce.In(inputTime);
-                return ease;
-            }
-
-            if (dopeEasingType == DopeEasingType.EaseOutBounce)
-            {
-                float ease = Bounce.Out(inputTime);
-                return ease;
-            }
-
-            if (dopeEasingType == DopeEasingType.EaseInOutBounce)
-            {
-                float ease = Bounce.InOut(inputTime);
-                return ease;
-            }
-
-
-            if (dopeEasingType == DopeEasingType.EaseInCirc)
-            {
-                float ease = Circular.In(inputTime);
-                return ease;
-            }
-
-            if (dopeEasingType == DopeEasingType.EaseOutCirc)
-            {
-                float ease = Circular.Out(inputTime);
-                return ease;
-            }
-
-            if (dopeEasingType == DopeEasingType.EaseInOutCirc)
-            {
-                float ease = Circular.InOut(inputTime);
-                return ease;
-            }
-
-
-            if (dopeEasingType == DopeEasingType.EaseInCubic)
-            {
-                float ease = Cubic.In(inputTime);
-                return ease;
-            }
-
-            if (dopeEasingType == DopeEasingType.EaseOutCubic)
-            {
-                float ease = Cubic.Out(inputTime);
-                return ease;
-            }
-
-            if (dopeEasingType == DopeEasingType.EaseInOutCubic)
-            {
-                float ease = Cubic.InOut(inputTime);
-                return ease;
-            }
-
-
-            if (dopeEasingType == DopeEasingType.EaseInElastic)
-            {
-                float ease = Elastic.In(inputTime, smooth, spring);
-                return ease;
-            }
-
-            if (dopeEasingType == DopeEasingType.EaseOutElastic)
-            {
-                float ease = Elastic.Out(inputTime, smooth, spring);
-                return ease;
-            }
-
-            if (dopeEasingType == DopeEasingType.EaseInOutElastic)
-            {
-                float ease = Elastic.InOut(inputTime, smooth, spring);
-                return ease;
-            }
-
-
-            if (dopeEasingType == DopeEasingType.EaseInExpo)
-            {
-                float ease = Exponential.In(inputTime);
-                return ease;
-            }
-
-            if (dopeEasingType == DopeEasingType.EaseOutExpo)
-            {
-                float ease = Exponential.Out(inputTime);
-                return ease;
-            }
-
-            if (dopeEasingType == DopeEasingType.EaseInOutExpo)
-            {
-                float ease = Exponential.InOut(inputTime);
-                return ease;
-            }
-
-
-            if (dopeEasingType == DopeEasingType.EaseInSine)
-            {
-                float ease = Sinusoidal.In(inputTime);
-                return ease;
-            }
-
-            if (dopeEasingType == DopeEasingType.EaseOutSine)
-            {
-                float ease = Sinusoidal.Out(inputTime);
-                return ease;
-            }
-
-            if (dopeEasingType == DopeEasingType.EaseInOutSine)
-            {
-                float ease = Sinusoidal.InOut(inputTime);
-                return ease;
-            }
-
-            #region Visually Duplicate Ease
-            //if (dopeEasingType == DopeEasingType.EaseInQuad)
-            //{
-            //    float ease = Quadratic.In(inputTime);
-            //    return ease;
-            //}
-
-            //if (dopeEasingType == DopeEasingType.EaseOutQuad)
-            //{
-            //    float ease = Quadratic.Out(inputTime);
-            //    return ease;
-            //}
-
-            //if (dopeEasingType == DopeEasingType.EaseInOutQuad)
-            //{
-            //    float ease = Quadratic.InOut(inputTime);
-            //    return ease;
-            //}
-
-
-            //if (dopeEasingType == DopeEasingType.EaseInQuart)
-            //{
-            //    float ease = Quartic.In(inputTime);
-            //    return ease;
-            //}
-
-            //if (dopeEasingType == DopeEasingType.EaseOutQuart)
-            //{
-            //    float ease = Quartic.Out(inputTime);
-            //    return ease;
-            //}
-
-            //if (dopeEasingType == DopeEasingType.EaseInOutQuart)
-            //{
-            //    float ease = Quartic.InOut(inputTime);
-            //    return ease;
-            //}
-
-
-            //if (dopeEasingType == DopeEasingType.EaseInQuint)
-            //{
-            //    float ease = Quintic.In(inputTime);
-            //    return ease;
-            //}
-
-            //if (dopeEasingType == DopeEasingType.EaseOutQuint)
-            //{
-            //    float ease = Quintic.Out(inputTime);
-            //    return ease;
-            //}
-
-            //if (dopeEasingType == DopeEasingType.EaseInOutQuint)
-            //{
-            //    float ease = Quintic.InOut(inputTime);
-            //    return ease;
-            //}
-            #endregion
-
-            return 0f;
         }
 
 

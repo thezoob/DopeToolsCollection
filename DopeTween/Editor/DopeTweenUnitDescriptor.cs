@@ -93,6 +93,34 @@ namespace Dopetools.Tweening
                 description.label = "Tweened Value.";
             }
 
+            else if (port == target.elapsedSeconds)
+            {
+                description.summary = "Elapsed tween time in seconds.";
+                description.showLabel = true;
+                description.label = "Elapsed Seconds";
+            }
+
+            else if (port == target.elapsedRatio)
+            {
+                description.summary = "Elapsed tween progress from 0 to 1.";
+                description.showLabel = true;
+                description.label = "Elapsed Ratio";
+            }
+
+            else if (port == target.remainingSeconds)
+            {
+                description.summary = "Remaining tween time in seconds.";
+                description.showLabel = true;
+                description.label = "Remaining Seconds";
+            }
+
+            else if (port == target.remainingRatio)
+            {
+                description.summary = "Remaining tween progress from 1 to 0.";
+                description.showLabel = true;
+                description.label = "Remaining Ratio";
+            }
+
             else if (port == target.duration)
             {
                 description.summary = "Duration of Tween in seconds.";
@@ -105,9 +133,45 @@ namespace Dopetools.Tweening
                 description.showLabel = false;
             }
 
+            else if (port == target.pause)
+            {
+                description.summary = "Pause the active Tween.";
+                description.showLabel = true;
+            }
+
+            else if (port == target.resume)
+            {
+                description.summary = "Resume a paused Tween.";
+                description.showLabel = true;
+            }
+
+            else if (port == target.cancel)
+            {
+                description.summary = "Cancel the active Tween without firing Done.";
+                description.showLabel = true;
+            }
+
             else if (port == target.started)
             {
                 description.summary = "Event fired when Tween starts.";
+                description.showLabel = true;
+            }
+
+            else if (port == target.paused)
+            {
+                description.summary = "Event fired after Pause is called.";
+                description.showLabel = true;
+            }
+
+            else if (port == target.resumed)
+            {
+                description.summary = "Event fired after Resume is called.";
+                description.showLabel = true;
+            }
+
+            else if (port == target.cancelled)
+            {
+                description.summary = "Event fired after Cancel is called.";
                 description.showLabel = true;
             }
 
