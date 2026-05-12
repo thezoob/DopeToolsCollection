@@ -29,12 +29,14 @@ Find these in the Fuzzy Finder under `DopeTools/Notifications`:
 - **Cancel Notification**
 - **Cancel All Notifications**
 - **Open Settings**
+- **Notification Received** — event unit based on `Unity.Notifications.NotificationCenter.OnNotificationReceived`; outputs `received`, `title`, `text`, `data`, and `identifier`.
 
 ## Recommended graph flow
 
 1. On app start: `Dope Notifications / Initialize`.
 2. Then: `Dope Notifications / Request Permission`.
 3. Only schedule notifications after the `granted` output.
+4. Use `Dope Notifications / Notification Received` anywhere you need foreground/tapped notification payloads inside a Bolt graph.
 
 ## Defaults
 

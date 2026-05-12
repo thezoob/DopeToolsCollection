@@ -1,4 +1,5 @@
 #if DOPETOOLS_HAS_UNITY_ADS
+using System;
 using System.Collections.Generic;
 using Bolt;
 using UnityEngine;
@@ -13,6 +14,18 @@ namespace Dopetools.DopeAds
     /// package uses explicit Initialize, Load and Show listeners, so this component keeps
     /// a small loaded-ad cache and forwards SDK callbacks as Bolt Custom Events.
     /// </summary>
+    public sealed class DopeAdsCallbackEventArgs : EventArgs
+    {
+        public DopeAdsCallbackEventArgs(string eventName, string argument)
+        {
+            EventName = eventName;
+            Argument = argument;
+        }
+
+        public string EventName { get; private set; }
+        public string Argument { get; private set; }
+    }
+
     public class DopeAds : MonoBehaviour, IUnityAdsInitializationListener, IUnityAdsLoadListener, IUnityAdsShowListener
     {
         public const string EventInitializationComplete = "OnUnityAdsInitializationComplete";
@@ -48,6 +61,8 @@ namespace Dopetools.DopeAds
 
         private static readonly HashSet<string> loadedAdUnits = new HashSet<string>();
         private static readonly HashSet<string> pendingShowAdUnits = new HashSet<string>();
+        public static event Action<DopeAdsCallbackEventArgs> CallbackReceived;
+
         private static DopeAds instance;
 
         public static DopeAds Instance
@@ -319,6 +334,12 @@ namespace Dopetools.DopeAds
             else
             {
                 CustomEvent.Trigger(eventTarget, eventName, argument);
+            }
+
+            var callbackReceived = CallbackReceived;
+            if (callbackReceived != null)
+            {
+                callbackReceived(new DopeAdsCallbackEventArgs(eventName, argument == null ? string.Empty : argument.ToString()));
             }
         }
 

@@ -54,7 +54,7 @@ Tweening units based on animate.js and Tweening SuperUnits to add juice to your 
 
 Unity 6 update: requires **Mobile Notifications** (`com.unity.mobile.notifications`) 2.4+.
 
-Cross-platform Visual Scripting units for initializing, requesting permission, and scheduling notifications on Android/iOS.
+Cross-platform Visual Scripting units for initializing, requesting permission, scheduling notifications, and receiving notification payload events on Android/iOS.
 
 ![Dope Notifications Android](https://i.imgur.com/HF1bZBp.png)
 
@@ -62,7 +62,7 @@ Cross-platform Visual Scripting units for initializing, requesting permission, a
 
 Unity 6 update: requires **Advertisement Legacy** (`com.unity.ads`) 4.x.
 
-Adds Unity 6-compatible Initialize / Load / Show / Banner units using the modern listener-based Ads API.
+Adds Unity 6-compatible Initialize / Load / Show / Banner units plus callback event units using the modern listener-based Ads API.
 
 ![DopeAds](https://i.imgur.com/o1Z4x47.png)
 

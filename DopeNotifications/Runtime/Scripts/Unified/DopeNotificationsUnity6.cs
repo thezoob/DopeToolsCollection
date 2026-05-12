@@ -411,5 +411,115 @@ namespace Dopetools.DopeNotifications
             return exit;
         }
     }
+
+    [UnitSurtitle("Dope Notifications")]
+    [UnitTitle("Notification Received")]
+    [UnitCategory("DopeTools/Notifications")]
+    public sealed class DopeNotificationsReceived : Unit, IGraphElementWithData, IGraphEventListener
+    {
+        public sealed class Data : IGraphElementData
+        {
+            public bool isListening;
+            public Delegate callback;
+            public string title = string.Empty;
+            public string text = string.Empty;
+            public string data = string.Empty;
+            public int identifier;
+        }
+
+        [DoNotSerialize] public ControlOutput received { get; private set; }
+        [DoNotSerialize] public ValueOutput title { get; private set; }
+        [DoNotSerialize] public ValueOutput text { get; private set; }
+        [DoNotSerialize] public ValueOutput data { get; private set; }
+        [DoNotSerialize] public ValueOutput identifier { get; private set; }
+
+        protected override void Definition()
+        {
+            isControlRoot = true;
+
+            received = ControlOutput(nameof(received));
+            title = ValueOutput<string>(nameof(title), GetTitle);
+            text = ValueOutput<string>(nameof(text), GetText);
+            data = ValueOutput<string>(nameof(data), GetData);
+            identifier = ValueOutput<int>(nameof(identifier), GetIdentifier);
+        }
+
+        public IGraphElementData CreateData()
+        {
+            return new Data();
+        }
+
+        public void StartListening(GraphStack stack)
+        {
+            var graphData = stack.GetElementData<Data>(this);
+
+            if (graphData.isListening)
+            {
+                return;
+            }
+
+            DopeNotifications.EnsureInitialized();
+
+            var reference = stack.ToReference();
+            Action<Notification> callback = notification => Trigger(reference, notification);
+            NotificationCenter.OnNotificationReceived += callback;
+            graphData.callback = callback;
+            graphData.isListening = true;
+        }
+
+        public void StopListening(GraphStack stack)
+        {
+            var graphData = stack.GetElementData<Data>(this);
+
+            if (!graphData.isListening)
+            {
+                return;
+            }
+
+            NotificationCenter.OnNotificationReceived -= (Action<Notification>)graphData.callback;
+            graphData.callback = null;
+            graphData.isListening = false;
+        }
+
+        public bool IsListening(GraphPointer pointer)
+        {
+            return pointer.GetElementData<Data>(this).isListening;
+        }
+
+        private string GetTitle(Flow flow)
+        {
+            return flow.stack.GetElementData<Data>(this).title;
+        }
+
+        private string GetText(Flow flow)
+        {
+            return flow.stack.GetElementData<Data>(this).text;
+        }
+
+        private string GetData(Flow flow)
+        {
+            return flow.stack.GetElementData<Data>(this).data;
+        }
+
+        private int GetIdentifier(Flow flow)
+        {
+            return flow.stack.GetElementData<Data>(this).identifier;
+        }
+
+        private void Trigger(GraphReference reference, Notification notification)
+        {
+            using (var flow = Flow.New(reference))
+            {
+                var graphData = flow.stack.GetElementData<Data>(this);
+                graphData.title = notification.Title;
+                graphData.text = notification.Text;
+                graphData.data = notification.Data;
+                graphData.identifier = notification.Identifier;
+
+                flow.Invoke(received);
+            }
+        }
+    }
+
 }
 #endif

@@ -34,6 +34,7 @@ Find these in the Fuzzy Finder under `DopeTools/Ads`:
 - **Is Ad Loaded**
 - **Show Banner**
 - **Hide Banner**
+- **Ads Events** — a modern Bolt event unit with separate control outputs for Ads SDK callbacks.
 
 Use platform-specific Ad Unit IDs. Defaults follow Unity's current sample naming:
 
@@ -43,7 +44,12 @@ Use platform-specific Ad Unit IDs. Defaults follow Unity's current sample naming
 
 ## Callback events
 
-Attach `DopeAds` to an object or let the units create a `Dope Ads` object automatically. SDK callbacks are forwarded as Bolt Custom Events on that object:
+Attach `DopeAds` to an object or let the units create a `Dope Ads` object automatically. SDK callbacks are forwarded in two ways:
+
+1. The **Ads Events** Bolt event unit exposes callback-specific control outputs and `eventName` / `argument` values.
+2. Existing Bolt Custom Events are still triggered on the `Dope Ads` object for compatibility.
+
+Custom Event names preserved:
 
 - `OnUnityAdsInitializationComplete`
 - `OnUnityAdsInitializationFailed`
@@ -61,6 +67,8 @@ Attach `DopeAds` to an object or let the units create a `Dope Ads` object automa
 - `OnUnityBannerShown`
 - `OnUnityBannerClicked`
 - `OnUnityBannerHidden`
+
+The **Ads Events** unit is implemented as an `IGraphEventListener` over DopeAds' typed callback stream, because that avoids relying on Visual Scripting graph authors to remember stringly-typed Custom Event names while preserving the existing Custom Event workflow.
 
 ## Legacy super units
 
