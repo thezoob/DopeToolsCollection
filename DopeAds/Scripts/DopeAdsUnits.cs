@@ -1,7 +1,6 @@
 #if DOPETOOLS_HAS_UNITY_ADS
+using Unity.VisualScripting;
 using System;
-using Bolt;
-using Ludiq;
 using UnityEngine.Advertisements;
 
 namespace Dopetools.DopeAds

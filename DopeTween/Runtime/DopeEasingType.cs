@@ -1,4 +1,4 @@
-﻿using Ludiq;
+using Unity.VisualScripting;
 namespace Dopetools.Tweening
 {
     [RenamedFrom("Dopetools.Animation.DopeEasingType")]

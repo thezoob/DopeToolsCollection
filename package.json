@@ -10,9 +10,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "com.unity.visualscripting": "1.9.5",
-    "com.unity.mobile.notifications": "2.4.0",
-    "com.unity.ads": "4.12.0"
+    "com.unity.visualscripting": "1.9.5"
   },
   "keywords": [
     "bolt",

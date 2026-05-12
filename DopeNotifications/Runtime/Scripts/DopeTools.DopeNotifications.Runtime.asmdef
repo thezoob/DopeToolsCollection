@@ -4,7 +4,9 @@
     "references": [
         "Unity.VisualScripting.Core",
         "Unity.VisualScripting.Flow",
-        "Unity.Notifications"
+        "Unity.Notifications.Unified",
+        "Unity.Notifications.Android",
+        "Unity.Notifications.iOS"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

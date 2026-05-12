@@ -1,7 +1,7 @@
 #if DOPETOOLS_HAS_UNITY_ADS
+using Unity.VisualScripting;
 using System;
 using System.Collections.Generic;
-using Bolt;
 using UnityEngine;
 using UnityEngine.Advertisements;
 

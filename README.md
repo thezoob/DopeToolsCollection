@@ -15,15 +15,16 @@ Useful Super Units and custom units for **Unity Visual Scripting** (formerly **B
 4. Let Unity resolve dependencies and compile.
 5. Run **Tools > Bolt > Build Unit Options...** so DopeTools units appear in the Visual Scripting Fuzzy Finder.
 
-## Required Unity packages
+## Unity packages
 
-This package targets Unity 6 and declares these Package Manager dependencies:
+This package targets Unity 6 and declares **Visual Scripting** (`com.unity.visualscripting`) 1.9.5+ as a Package Manager dependency.
 
-- **Visual Scripting** (`com.unity.visualscripting`) 1.9.5+
+Optional integrations require extra packages only if you use those modules:
+
 - **Mobile Notifications** (`com.unity.mobile.notifications`) 2.4.0+ for DopeNotifications
 - **Advertisement Legacy** (`com.unity.ads`) 4.x for DopeAds
 
-If you install from Git, Unity should resolve the declared versions. If your project already uses newer compatible versions, keep the newer versions.
+Install optional packages from Package Manager before using those units.
 
 ## Module/dependency notes
 
@@ -33,7 +34,7 @@ DopeTween and the pure macro folders are isolated from optional package integrat
 - DopeNotifications C# units compile only when Unity's **Mobile Notifications** package (`com.unity.mobile.notifications` 2.4+) is installed.
 - Bolt / Unity Visual Scripting is still required for the custom units.
 
-> Remove folders for tools you do not need only when using an embedded/local copy of the package. Direct Git installs keep all modules present, and their declared package dependencies are required for compilation.
+> Remove folders for tools you do not need only when using an embedded/local copy of the package. Direct Git installs keep all modules present; optional Ads/Notifications assemblies are guarded and compile only when their packages are installed.
 
 ## Documentation and demos
 

@@ -1,8 +1,7 @@
 #if DOPETOOLS_HAS_MOBILE_NOTIFICATIONS
 #if UNITY_IOS
+using Unity.VisualScripting;
 using UnityEngine;
-using Bolt;
-using Ludiq;
 using Unity.Notifications.iOS;
 using System;
 

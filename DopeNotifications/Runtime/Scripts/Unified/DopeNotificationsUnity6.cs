@@ -1,8 +1,7 @@
 #if DOPETOOLS_HAS_MOBILE_NOTIFICATIONS
+using Unity.VisualScripting;
 using System;
 using System.Collections;
-using Bolt;
-using Ludiq;
 using Unity.Notifications;
 using UnityEngine;
 
@@ -207,8 +206,6 @@ namespace Dopetools.DopeNotifications
     [UnitSurtitle("Dope Notifications")]
     [UnitTitle("Schedule Delayed")]
     [UnitCategory("DopeTools/Notifications")]
-    [RenamedFrom("Dopetools.DopeNotifications.DopeAndroidNotifications")]
-    [RenamedFrom("Dopetools.DopeNotifications.DopeIosNotificationDelayed")]
     public sealed class DopeNotificationsScheduleDelayed : Unit
     {
         [DoNotSerialize, PortLabelHidden] public ControlInput enter { get; private set; }
@@ -268,8 +265,6 @@ namespace Dopetools.DopeNotifications
     [UnitSurtitle("Dope Notifications")]
     [UnitTitle("Schedule Date Time")]
     [UnitCategory("DopeTools/Notifications")]
-    [RenamedFrom("Dopetools.DopeNotifications.DopeAndroidScheduleNotification")]
-    [RenamedFrom("Dopetools.DopeNotifications.DopeIosNotificationCalendar")]
     public sealed class DopeNotificationsScheduleDateTime : Unit
     {
         [DoNotSerialize, PortLabelHidden] public ControlInput enter { get; private set; }

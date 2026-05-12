@@ -11,7 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Added Unity Package Manager metadata for Git URL installation.
 - Added Unity 6 setup documentation under `Documentation~`.
 - Added `Samples~/README.md` guidance for manually copying/importing the existing `_DopeTools Demos` content.
-- Documented required Unity packages for Visual Scripting, Mobile Notifications, and Advertisement Legacy.
+- Documented required Visual Scripting dependency and optional Mobile Notifications / Advertisement Legacy integrations.
 
 ### Changed
 
