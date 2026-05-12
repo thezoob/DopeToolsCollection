@@ -1,13 +1,13 @@
 # DopeAds Unity 6
 
-DopeAds now targets Unity 6 with Unity's **Advertisement Legacy** package (`com.unity.ads` 4.x).
+DopeAds now targets Unity 6 with Unity's **Advertisement Legacy** package (`com.unity.ads` 4.x). Its C# units are isolated in an optional assembly and only compile when that package is installed.
 
 > Unity Ads direct integration is now considered legacy by Unity. For long-term monetization Unity recommends LevelPlay mediation. This update keeps the original DopeAds workflow working against the current Advertisement Legacy API.
 
 ## Requirements
 
 1. Unity 6.
-2. Package Manager > Unity Registry > **Advertisement Legacy** (`com.unity.ads`).
+2. Package Manager > Unity Registry > **Advertisement Legacy** (`com.unity.ads` 4.x) to enable the C# units. If it is missing, DopeAds scripts are skipped so other DopeTools modules still compile.
 3. Bolt / Unity Visual Scripting with DopeTools imported.
 4. Run **Tools > Bolt > Build Unit Options...** after importing/updating scripts.
 

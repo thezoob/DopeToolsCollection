@@ -1,4 +1,5 @@
-﻿namespace Dopetools.DopeNotifications
+#if DOPETOOLS_HAS_MOBILE_NOTIFICATIONS
+namespace Dopetools.DopeNotifications
 {
     public enum AndroidStatusType
     {
@@ -7,3 +8,4 @@
         Unknown,
     }
 }
+#endif

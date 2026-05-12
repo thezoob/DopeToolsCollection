@@ -1,4 +1,5 @@
-﻿using Bolt;
+#if DOPETOOLS_HAS_UNITY_ADS
+using Bolt;
 using Ludiq;
 using UnityEngine.Advertisements;
 
@@ -199,3 +200,4 @@ namespace Dopetools.DopeAds
         }
     }
 }
+#endif

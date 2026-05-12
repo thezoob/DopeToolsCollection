@@ -1,4 +1,5 @@
-﻿#if UNITY_ANDROID
+#if DOPETOOLS_HAS_MOBILE_NOTIFICATIONS
+#if UNITY_ANDROID
 using Unity.Notifications.Android;
 
 namespace Dopetools.DopeNotifications
@@ -59,4 +60,5 @@ namespace Dopetools.DopeNotifications
 
 }
 
+#endif
 #endif

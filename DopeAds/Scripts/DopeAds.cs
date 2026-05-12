@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+#if DOPETOOLS_HAS_UNITY_ADS
+using System.Collections.Generic;
 using Bolt;
 using UnityEngine;
 using UnityEngine.Advertisements;
@@ -399,3 +400,4 @@ namespace Dopetools.DopeAds
         }
     }
 }
+#endif

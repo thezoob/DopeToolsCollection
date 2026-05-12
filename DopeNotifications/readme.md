@@ -1,11 +1,11 @@
 # DopeNotifications Unity 6
 
-DopeNotifications now includes Unity 6-compatible unified units using Unity's **Mobile Notifications** package (`com.unity.mobile.notifications` 2.4+).
+DopeNotifications now includes Unity 6-compatible unified units using Unity's **Mobile Notifications** package (`com.unity.mobile.notifications` 2.4+). Its C# units are isolated in optional runtime/editor assemblies and only compile when that package is installed.
 
 ## Requirements
 
 1. Unity 6.
-2. Package Manager > Unity Registry > **Mobile Notifications** (`com.unity.mobile.notifications`).
+2. Package Manager > Unity Registry > **Mobile Notifications** (`com.unity.mobile.notifications` 2.4+) to enable the C# units. If it is missing, DopeNotifications scripts are skipped so other DopeTools modules still compile.
 3. Bolt / Unity Visual Scripting with DopeTools imported.
 4. Run **Tools > Bolt > Build Unit Options...** after importing/updating scripts.
 

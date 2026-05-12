@@ -1,4 +1,5 @@
-﻿#if UNITY_ANDROID
+#if DOPETOOLS_HAS_MOBILE_NOTIFICATIONS
+#if UNITY_ANDROID
 using Ludiq;
 using System;
 using Bolt;
@@ -34,4 +35,5 @@ namespace Dopetools.DopeNotifications
 
 }
 
+#endif
 #endif

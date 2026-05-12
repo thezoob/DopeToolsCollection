@@ -1,0 +1,22 @@
+{
+    "name": "DopeTools.DopeTween.Editor",
+    "rootNamespace": "Dopetools.Tweening",
+    "references": [
+        "DopeTools.DopeTween.Runtime",
+        "Unity.VisualScripting.Core",
+        "Unity.VisualScripting.Flow",
+        "Unity.VisualScripting.Core.Editor",
+        "Unity.VisualScripting.Flow.Editor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

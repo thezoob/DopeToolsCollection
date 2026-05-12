@@ -1,4 +1,5 @@
-﻿using System;
+#if DOPETOOLS_HAS_MOBILE_NOTIFICATIONS
+using System;
 using System.Collections;
 using Bolt;
 using Ludiq;
@@ -411,3 +412,4 @@ namespace Dopetools.DopeNotifications
         }
     }
 }
+#endif
